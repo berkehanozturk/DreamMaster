@@ -48,6 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="fieldStackView" destination="fng-vi-zex" id="fPI-oL-CeD"/>
+                        <outlet property="signUpButton" destination="ZE4-Gv-W5E" id="1dr-9k-rV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

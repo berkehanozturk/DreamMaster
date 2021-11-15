@@ -20,17 +20,26 @@ class LoginViewController: BaseViewController {
     var presenter = LoginPresenter()
     
     @IBOutlet weak var fieldStackView: UIStackView!
-    @IBOutlet weak var loginButton: DreamMasterButton!
+    @IBOutlet weak var loginButton: DreamMasterButton! {
+        didSet {
+            loginButton.setTitle(Localizables.Login.login, for: .normal)
+        }
+    }
     @IBOutlet weak var signUpLabel: UILabel! {
         didSet {
             let labelTap = UITapGestureRecognizer(target: self, action: #selector(labelClicked))
             signUpLabel.isUserInteractionEnabled = true
             signUpLabel.addGestureRecognizer(labelTap)
+            let dontHaveAccountAttributedString = NSMutableAttributedString(string: Localizables.Login.dontHaveAccount)
+            let blueAttribute = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+            let signupAtrributedString = NSAttributedString(string: Localizables.Signup.signup, attributes: blueAttribute)
+            dontHaveAccountAttributedString.append(signupAtrributedString)
+            signUpLabel.attributedText = dontHaveAccountAttributedString
         }
     }
     
-    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: "Email")
-    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: "Password")
+    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: Localizables.Login.userEmail)
+    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: Localizables.Login.password)
 
     override func viewDidLoad() {
         super.viewDidLoad()

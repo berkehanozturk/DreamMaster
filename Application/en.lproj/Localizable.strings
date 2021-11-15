@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Application
+
+  Created by Berkehan on 15.11.2021.
+  
+*/
+"login" = "Login";
+"login_user_email" = "Email";
+"login_password" = "Password";
+"dont_have_account" = "Dont Have Account? ";
+"signup" = "Sign Up";
+"signup_user_email" = "Email";
+"signup_password" = "Password";
+"signup_password_again" = "Password(Again)";

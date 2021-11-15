@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		11773BDD7E085B92D1DBDA4F /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8F78E7111B9B0A9845F81C /* Pods_Core.framework */; };
+		6F437B70274263BC0069B47E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B6F274263BC0069B47E /* String.swift */; };
 		6FBF4999273D482D00825776 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF4997273D482D00825776 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6D6B696FB7101A72C7A8B059 /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
+		6F437B6F274263BC0069B47E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		6FBF4994273D482D00825776 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBF4997273D482D00825776 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		6FBF4998273D482D00825776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,9 +42,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6F437B6E274263B00069B47E /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				6F437B6F274263BC0069B47E /* String.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		6FBF498A273D482D00825776 = {
 			isa = PBXGroup;
 			children = (
+				6F437B6E274263B00069B47E /* Strings */,
 				6FBF4996273D482D00825776 /* Core */,
 				6FBF4995273D482D00825776 /* Products */,
 				8C9CA59D23772B62286A912B /* Pods */,
@@ -120,6 +131,7 @@
 				TargetAttributes = {
 					6FBF4993273D482D00825776 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -181,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F437B70274263BC0069B47E /* String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +326,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1D9A604F427C4EE4A09AF3 /* Pods-Core.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NCFZ3UC6GU;
@@ -329,6 +343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -338,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D6B696FB7101A72C7A8B059 /* Pods-Core.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NCFZ3UC6GU;
