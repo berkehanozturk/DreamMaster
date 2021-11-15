@@ -21,7 +21,7 @@
                                 <rect key="frame" x="42.666666666666657" y="245.33333333333337" width="342.66666666666674" height="250"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-Gv-W5E" customClass="DreamMasterButton" customModule="UIComponents">
-                                <rect key="frame" x="42.666666666666657" y="520.33333333333337" width="342.66666666666674" height="55.333333333333371"/>
+                                <rect key="frame" x="32" y="520.33333333333337" width="364" height="60"/>
                                 <state key="normal" title="Sign Up"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-0r-hw9">
@@ -34,14 +34,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="4XJ-59-uy9"/>
+                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.85" id="4XJ-59-uy9"/>
                             <constraint firstItem="fng-vi-zex" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.27" id="56Y-V3-Xad"/>
                             <constraint firstItem="ZE4-Gv-W5E" firstAttribute="top" secondItem="fng-vi-zex" secondAttribute="bottom" multiplier="1.05" id="5FR-uh-b49"/>
                             <constraint firstItem="PxK-0r-hw9" firstAttribute="bottom" secondItem="fng-vi-zex" secondAttribute="top" multiplier="0.85" id="ER4-3g-tzv"/>
                             <constraint firstItem="fng-vi-zex" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="RGh-qF-ghd"/>
                             <constraint firstItem="fng-vi-zex" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="fwV-Yc-mnD"/>
                             <constraint firstItem="fng-vi-zex" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="0.8" id="ix5-0w-t56"/>
-                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.06" id="kBb-FQ-n70"/>
+                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.065" id="kBb-FQ-n70"/>
                             <constraint firstItem="PxK-0r-hw9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="rFO-HZ-Rfx"/>
                             <constraint firstItem="ZE4-Gv-W5E" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="tAP-kP-nOg"/>
                         </constraints>

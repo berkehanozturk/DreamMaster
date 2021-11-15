@@ -17,6 +17,7 @@ protocol BaseView: AnyObject {
 
 class BaseViewController: UIViewController {
     var backButton: BackButton?
+    var bottomConstraintForKeyboard: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +40,29 @@ class BaseViewController: UIViewController {
     
     @objc private func backButtonClicked() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func registerForKeyboardNotifications(bottomConstraint: NSLayoutConstraint) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow),
+        name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide),
+        name: UIResponder.keyboardWillHideNotification, object: nil)
+        bottomConstraintForKeyboard = bottomConstraint
+    }
+    
+    @objc private func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if let bottomConstraint = bottomConstraintForKeyboard {
+                bottomConstraint.constant = -keyboardSize.height
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: Notification) {
+        if let bottomConstraint = bottomConstraintForKeyboard {
+            bottomConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
     }
 }

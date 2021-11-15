@@ -15,10 +15,13 @@ protocol LoginView: AnyObject {
     
 }
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, UIScrollViewDelegate {
     
     var presenter = LoginPresenter()
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var fieldStackView: UIStackView!
     @IBOutlet weak var loginButton: DreamMasterButton! {
         didSet {
@@ -52,15 +55,22 @@ class LoginViewController: BaseViewController {
         view.layer.insertSublayer(color.gl, at: 0)
     }
     
+
+
     private func setup() {
+        registerForKeyboardNotifications(bottomConstraint: scrollViewBottomConstraint)
         fieldStackView.addArrangedSubview(emailField)
         fieldStackView.addArrangedSubview(passwordField)
         emailField.layoutIfNeeded()
         fieldStackView.spacing  = emailField.frame.height/1.5
         backButton?.isHidden = true
-
+        scrollView.delegate = self
+        scrollView.showsHorizontalScrollIndicator = false
     }
- 
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0.0
+    }
     @IBAction func loginButtonClicked(_ sender: Any) {
         
     }
