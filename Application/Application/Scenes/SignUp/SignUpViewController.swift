@@ -21,6 +21,7 @@ class SignUpViewController: BaseViewController {
     
     @IBOutlet weak var fieldStackView: UIStackView!
     
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var signUpButton: DreamMasterButton! {
         didSet {
             signUpButton.setTitle(Localizables.Signup.signup, for: .normal)
@@ -49,6 +50,7 @@ class SignUpViewController: BaseViewController {
         fieldStackView.addArrangedSubview(passwordFieldAgain)
         emailField.layoutIfNeeded()
         fieldStackView.spacing  = emailField.frame.height/2.5
+        registerForKeyboardNotifications(bottomConstraint: scrollViewBottomConstraint)
     }
     
 }

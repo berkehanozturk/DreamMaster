@@ -17,43 +17,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fng-vi-zex">
-                                <rect key="frame" x="42.666666666666657" y="245.33333333333337" width="342.66666666666674" height="250"/>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-Gv-W5E" customClass="DreamMasterButton" customModule="UIComponents">
-                                <rect key="frame" x="32" y="520.33333333333337" width="364" height="60"/>
-                                <state key="normal" title="Sign Up"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-0r-hw9">
-                                <rect key="frame" x="141.66666666666669" y="160.66666666666666" width="144.66666666666669" height="48"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" red="0.52156862749999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPr-BE-vVb">
+                                <rect key="frame" x="0.0" y="44" width="428" height="882"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fs-HI-xcR">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fng-vi-zex">
+                                                <rect key="frame" x="42.666666666666657" y="245.33333333333331" width="342.66666666666674" height="250"/>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-Gv-W5E" customClass="DreamMasterButton" customModule="UIComponents">
+                                                <rect key="frame" x="32" y="520.33333333333337" width="364" height="60"/>
+                                                <state key="normal" title="Sign Up"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-0r-hw9">
+                                                <rect key="frame" x="142" y="160.66666666666666" width="144.33333333333337" height="48"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                <color key="textColor" red="0.52156862749999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="PxK-0r-hw9" firstAttribute="centerX" secondItem="fng-vi-zex" secondAttribute="centerX" id="BGH-U0-SIg"/>
+                                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="centerX" secondItem="fng-vi-zex" secondAttribute="centerX" id="ENO-eF-Co9"/>
+                                            <constraint firstItem="fng-vi-zex" firstAttribute="centerY" secondItem="6fs-HI-xcR" secondAttribute="centerY" multiplier="0.8" id="Xo0-dD-R91"/>
+                                            <constraint firstItem="PxK-0r-hw9" firstAttribute="bottom" secondItem="fng-vi-zex" secondAttribute="top" multiplier="0.85" id="ZTC-dw-QzP"/>
+                                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="top" secondItem="fng-vi-zex" secondAttribute="bottom" multiplier="1.05" id="fD0-IZ-s89"/>
+                                            <constraint firstItem="fng-vi-zex" firstAttribute="centerX" secondItem="6fs-HI-xcR" secondAttribute="centerX" id="rSV-ut-r5j"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6fs-HI-xcR" firstAttribute="leading" secondItem="EPr-BE-vVb" secondAttribute="leading" id="Kmw-74-OEV"/>
+                                    <constraint firstAttribute="trailing" secondItem="6fs-HI-xcR" secondAttribute="trailing" id="Oey-yk-grd"/>
+                                    <constraint firstItem="6fs-HI-xcR" firstAttribute="top" secondItem="EPr-BE-vVb" secondAttribute="top" id="Wkh-79-0q9"/>
+                                    <constraint firstAttribute="bottom" secondItem="6fs-HI-xcR" secondAttribute="bottom" id="ydW-Wa-Z2K"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.85" id="4XJ-59-uy9"/>
-                            <constraint firstItem="fng-vi-zex" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.27" id="56Y-V3-Xad"/>
-                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="top" secondItem="fng-vi-zex" secondAttribute="bottom" multiplier="1.05" id="5FR-uh-b49"/>
-                            <constraint firstItem="PxK-0r-hw9" firstAttribute="bottom" secondItem="fng-vi-zex" secondAttribute="top" multiplier="0.85" id="ER4-3g-tzv"/>
-                            <constraint firstItem="fng-vi-zex" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="RGh-qF-ghd"/>
-                            <constraint firstItem="fng-vi-zex" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="fwV-Yc-mnD"/>
-                            <constraint firstItem="fng-vi-zex" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="0.8" id="ix5-0w-t56"/>
-                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.065" id="kBb-FQ-n70"/>
-                            <constraint firstItem="PxK-0r-hw9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="rFO-HZ-Rfx"/>
-                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="tAP-kP-nOg"/>
+                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.065" id="9OF-tf-V3M"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EPr-BE-vVb" secondAttribute="trailing" id="GwN-e1-GBc"/>
+                            <constraint firstItem="fng-vi-zex" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="OHa-CY-nYh"/>
+                            <constraint firstItem="ZE4-Gv-W5E" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.850467" id="QxV-DJ-AEP"/>
+                            <constraint firstItem="fng-vi-zex" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.27" id="XA6-zC-JVo"/>
+                            <constraint firstItem="6fs-HI-xcR" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="aLw-0R-qbi"/>
+                            <constraint firstItem="EPr-BE-vVb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="baA-S1-4Qq"/>
+                            <constraint firstItem="6fs-HI-xcR" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" id="cNQ-4W-X7c"/>
+                            <constraint firstItem="EPr-BE-vVb" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="j2T-67-hGu"/>
+                            <constraint firstItem="EPr-BE-vVb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vAE-LI-7aF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fieldStackView" destination="fng-vi-zex" id="fPI-oL-CeD"/>
+                        <outlet property="scrollViewBottomConstraint" destination="j2T-67-hGu" id="v2p-2M-5H3"/>
                         <outlet property="signUpButton" destination="ZE4-Gv-W5E" id="1dr-9k-rV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44.927536231884062" y="88.392857142857139"/>
+            <point key="canvasLocation" x="44.859813084112147" y="88.120950323974085"/>
         </scene>
     </scenes>
     <resources>
