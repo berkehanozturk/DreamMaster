@@ -15,22 +15,34 @@ protocol LoginView: AnyObject {
     
 }
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, UIScrollViewDelegate {
     
     var presenter = LoginPresenter()
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var fieldStackView: UIStackView!
-    @IBOutlet weak var loginButton: DreamMasterButton!
+    @IBOutlet weak var loginButton: DreamMasterButton! {
+        didSet {
+            loginButton.setTitle(Localizables.Login.login, for: .normal)
+        }
+    }
     @IBOutlet weak var signUpLabel: UILabel! {
         didSet {
             let labelTap = UITapGestureRecognizer(target: self, action: #selector(labelClicked))
             signUpLabel.isUserInteractionEnabled = true
             signUpLabel.addGestureRecognizer(labelTap)
+            let dontHaveAccountAttributedString = NSMutableAttributedString(string: Localizables.Login.dontHaveAccount)
+            let blueAttribute = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+            let signupAtrributedString = NSAttributedString(string: Localizables.Signup.signup, attributes: blueAttribute)
+            dontHaveAccountAttributedString.append(signupAtrributedString)
+            signUpLabel.attributedText = dontHaveAccountAttributedString
         }
     }
     
-    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: "Email")
-    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: "Password")
+    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: Localizables.Login.userEmail)
+    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: Localizables.Login.password)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +55,22 @@ class LoginViewController: BaseViewController {
         view.layer.insertSublayer(color.gl, at: 0)
     }
     
+
+
     private func setup() {
+        registerForKeyboardNotifications(bottomConstraint: scrollViewBottomConstraint)
         fieldStackView.addArrangedSubview(emailField)
         fieldStackView.addArrangedSubview(passwordField)
         emailField.layoutIfNeeded()
         fieldStackView.spacing  = emailField.frame.height/1.5
         backButton?.isHidden = true
-
+        scrollView.delegate = self
+        scrollView.showsHorizontalScrollIndicator = false
     }
- 
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0.0
+    }
     @IBAction func loginButtonClicked(_ sender: Any) {
         
     }

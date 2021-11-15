@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Application
+
+  Created by Berkehan on 15.11.2021.
+  
+*/
+"login" = "Giriş";
+"login_user_email" = "Email";
+"login_password" = "Şifre";
+"dont_have_account" = "Üye değil misiniz? ";
+"signup" = "Kayıt Ol";
+"signup_user_email" = "Email";
+"signup_password" = "Şifre";
+"signup_password_again" = "Şifre(Tekrar)";

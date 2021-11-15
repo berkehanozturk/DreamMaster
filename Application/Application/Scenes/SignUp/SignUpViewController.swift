@@ -21,9 +21,16 @@ class SignUpViewController: BaseViewController {
     
     @IBOutlet weak var fieldStackView: UIStackView!
     
-    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: "Email")
-    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: "Password")
-    let passwordFieldAgain = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: "Password")
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var signUpButton: DreamMasterButton! {
+        didSet {
+            signUpButton.setTitle(Localizables.Signup.signup, for: .normal)
+        }
+    }
+    
+    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: Localizables.Signup.userEmail)
+    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: Localizables.Signup.password)
+    let passwordFieldAgain = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: Localizables.Signup.passwordAgain)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +50,7 @@ class SignUpViewController: BaseViewController {
         fieldStackView.addArrangedSubview(passwordFieldAgain)
         emailField.layoutIfNeeded()
         fieldStackView.spacing  = emailField.frame.height/2.5
+        registerForKeyboardNotifications(bottomConstraint: scrollViewBottomConstraint)
     }
     
 }

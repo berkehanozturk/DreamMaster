@@ -13,6 +13,8 @@
 		6F437B62273FD9720069B47E /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B5F273FD9720069B47E /* SignUpPresenter.swift */; };
 		6F437B63273FD9720069B47E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B60273FD9720069B47E /* SignUpViewController.swift */; };
 		6F437B65273FD97D0069B47E /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F437B64273FD97D0069B47E /* SignUp.storyboard */; };
+		6F437B72274263ED0069B47E /* Localizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B71274263ED0069B47E /* Localizables.swift */; };
+		6F437B752742650B0069B47E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F437B772742650B0069B47E /* Localizable.strings */; };
 		6FBF495D273D45D200825776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF495C273D45D200825776 /* AppDelegate.swift */; };
 		6FBF495F273D45D200825776 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF495E273D45D200825776 /* SceneDelegate.swift */; };
 		6FBF4967273D45D200825776 /* Application.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF4965273D45D200825776 /* Application.xcdatamodeld */; };
@@ -65,6 +67,9 @@
 		6F437B5F273FD9720069B47E /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		6F437B60273FD9720069B47E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6F437B64273FD97D0069B47E /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		6F437B71274263ED0069B47E /* Localizables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizables.swift; sourceTree = "<group>"; };
+		6F437B762742650B0069B47E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6F437B78274265CC0069B47E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FBF4959273D45D200825776 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBF495C273D45D200825776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FBF495E273D45D200825776 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 		6FBF4950273D45D200825776 = {
 			isa = PBXGroup;
 			children = (
+				6F437B772742650B0069B47E /* Localizable.strings */,
 				6FBF495B273D45D200825776 /* Application */,
 				6FBF495A273D45D200825776 /* Products */,
 				68EC12B5223DC85C7C79C18C /* Pods */,
@@ -177,6 +183,7 @@
 			children = (
 				6FBF49BA273E686400825776 /* Storyboards.swift */,
 				6FBF49CA273E84E400825776 /* SwiftLintRules.swift */,
+				6F437B71274263ED0069B47E /* Localizables.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -278,6 +285,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 6FBF4950273D45D200825776;
 			productRefGroup = 6FBF495A273D45D200825776 /* Products */;
@@ -295,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FBF49D4273E8B7000825776 /* Login.storyboard in Resources */,
+				6F437B752742650B0069B47E /* Localizable.strings in Resources */,
 				6FBF496C273D45D400825776 /* LaunchScreen.storyboard in Resources */,
 				6FBF4969273D45D400825776 /* Assets.xcassets in Resources */,
 				6FBF49C5273E68CA00825776 /* Splash.storyboard in Resources */,
@@ -381,6 +390,7 @@
 				6FBF49C8273E692600825776 /* BaseViewController.swift in Sources */,
 				6FBF49B8273E682A00825776 /* UIStoryboard+Extensions.swift in Sources */,
 				6FBF495D273D45D200825776 /* AppDelegate.swift in Sources */,
+				6F437B72274263ED0069B47E /* Localizables.swift in Sources */,
 				6F437B61273FD9720069B47E /* SignUpModule.swift in Sources */,
 				6FBF49CB273E84E400825776 /* SwiftLintRules.swift in Sources */,
 				6FBF49D2273E8B6600825776 /* LoginViewController.swift in Sources */,
@@ -392,6 +402,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6F437B772742650B0069B47E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F437B762742650B0069B47E /* en */,
+				6F437B78274265CC0069B47E /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
 		6FBF496A273D45D400825776 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -407,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -468,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
