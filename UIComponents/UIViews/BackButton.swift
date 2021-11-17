@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Core
 public class BackButton: UIButton {
     
     override init(frame: CGRect) {
@@ -18,7 +19,7 @@ public class BackButton: UIButton {
     }
     
     func setupButton() {
-        setBackgroundImage(UIImage(named: "backButton"), for: .normal)
+        setBackgroundImage(UIImage(named: ImageNames.backButton), for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

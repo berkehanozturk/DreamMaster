@@ -24,6 +24,7 @@ public class AppBgColor {
 public extension UIColor {
     
     static let dreamMasterColor = UIColor(red: 110/255, green: 75/255, blue: 228/255, alpha: 1)
+    static let selectedColor = UIColor(red: 62/255, green: 105/255, blue: 144/205, alpha: 1)
     
 }
 

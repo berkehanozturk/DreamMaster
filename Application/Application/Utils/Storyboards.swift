@@ -10,5 +10,6 @@ public enum Storyboards: String {
     case splash = "Splash"
     case login = "Login"
     case signUp = "SignUp"
+    case home = "Home"
 
 }

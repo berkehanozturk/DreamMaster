@@ -7,6 +7,7 @@
 
 import UIKit
 import UIComponents
+import Core
 protocol SignUpRouter: AnyObject {
     
 }
@@ -28,9 +29,9 @@ class SignUpViewController: BaseViewController {
         }
     }
     
-    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: Localizables.Signup.userEmail)
-    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: Localizables.Signup.password)
-    let passwordFieldAgain = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: Localizables.Signup.passwordAgain)
+    let emailField = InputFieldControl(image: UIImage(named: ImageNames.pencil), placeHolder: Localizables.Signup.userEmail)
+    let passwordField = InputFieldControl(image: UIImage(named: ImageNames.eraser), placeHolder: Localizables.Signup.password)
+    let passwordFieldAgain = InputFieldControl(image: UIImage(named: ImageNames.eraser), placeHolder: Localizables.Signup.passwordAgain)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class SignUpViewController: BaseViewController {
         emailField.layoutIfNeeded()
         fieldStackView.spacing  = emailField.frame.height/2.5
         registerForKeyboardNotifications(bottomConstraint: scrollViewBottomConstraint)
+        isBackButtonNeeded = true
     }
     
 }

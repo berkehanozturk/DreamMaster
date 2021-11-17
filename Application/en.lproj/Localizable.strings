@@ -13,3 +13,8 @@
 "signup_user_email" = "Email";
 "signup_password" = "Password";
 "signup_password_again" = "Password(Again)";
+"home" = "Home";
+"inbox" = "Inbox";
+"store" = "Store";
+"my_dreams" = "My Dreams";
+"pending_dreams" = "Pending Dreams";

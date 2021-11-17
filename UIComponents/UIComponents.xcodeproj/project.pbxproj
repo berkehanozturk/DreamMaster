@@ -12,6 +12,10 @@
 		6F437B67273FE1450069B47E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B66273FE1450069B47E /* BackButton.swift */; };
 		6FBF49AE273D486D00825776 /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF49AC273D486D00825776 /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FBF49D7273E8D5B00825776 /* AppBgColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF49D6273E8D5B00825776 /* AppBgColor.swift */; };
+		6FDD7E9027429C1C006ACBA6 /* DreamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E8F27429C1C006ACBA6 /* DreamSelectionView.swift */; };
+		6FDD7E932743C8FC006ACBA6 /* LeftNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E922743C8FC006ACBA6 /* LeftNavbarView.swift */; };
+		6FDD7E9B2743DA01006ACBA6 /* MyBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E9A2743DA01006ACBA6 /* MyBarButtonItem.swift */; };
+		6FDD7E9D2743F1CC006ACBA6 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E9C2743F1CC006ACBA6 /* PriceView.swift */; };
 		C734209D8A835EBB8E154F7C /* Pods_UIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5511BF2FE9B8D5FFCE1CA5 /* Pods_UIComponents.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		6FBF49AC273D486D00825776 /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
 		6FBF49AD273D486D00825776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FBF49D6273E8D5B00825776 /* AppBgColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBgColor.swift; sourceTree = "<group>"; };
+		6FDD7E8F27429C1C006ACBA6 /* DreamSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamSelectionView.swift; sourceTree = "<group>"; };
+		6FDD7E922743C8FC006ACBA6 /* LeftNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftNavbarView.swift; sourceTree = "<group>"; };
+		6FDD7E9A2743DA01006ACBA6 /* MyBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBarButtonItem.swift; sourceTree = "<group>"; };
+		6FDD7E9C2743F1CC006ACBA6 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		B9932D2E1BA6912732A80A6C /* Pods-UIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIComponents.release.xcconfig"; path = "Target Support Files/Pods-UIComponents/Pods-UIComponents.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,9 +59,12 @@
 		6F437B52273E95360069B47E /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				6FDD7E912743C8E9006ACBA6 /* NavbarViews */,
 				6F437B54273E95540069B47E /* InputFieldControl.swift */,
 				6F437B5B273FD0570069B47E /* DreamMasterButton.swift */,
 				6F437B66273FE1450069B47E /* BackButton.swift */,
+				6FDD7E8F27429C1C006ACBA6 /* DreamSelectionView.swift */,
+				6FDD7E9C2743F1CC006ACBA6 /* PriceView.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -93,6 +104,15 @@
 				6FBF49D6273E8D5B00825776 /* AppBgColor.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		6FDD7E912743C8E9006ACBA6 /* NavbarViews */ = {
+			isa = PBXGroup;
+			children = (
+				6FDD7E922743C8FC006ACBA6 /* LeftNavbarView.swift */,
+				6FDD7E9A2743DA01006ACBA6 /* MyBarButtonItem.swift */,
+			);
+			path = NavbarViews;
 			sourceTree = "<group>";
 		};
 		8C517239251E1465AA2CB93D /* Pods */ = {
@@ -210,10 +230,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDD7E9D2743F1CC006ACBA6 /* PriceView.swift in Sources */,
 				6F437B67273FE1450069B47E /* BackButton.swift in Sources */,
 				6FBF49D7273E8D5B00825776 /* AppBgColor.swift in Sources */,
 				6F437B55273E95540069B47E /* InputFieldControl.swift in Sources */,
+				6FDD7E9027429C1C006ACBA6 /* DreamSelectionView.swift in Sources */,
 				6F437B5C273FD0580069B47E /* DreamMasterButton.swift in Sources */,
+				6FDD7E932743C8FC006ACBA6 /* LeftNavbarView.swift in Sources */,
+				6FDD7E9B2743DA01006ACBA6 /* MyBarButtonItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
