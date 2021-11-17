@@ -13,3 +13,8 @@
 "signup_user_email" = "Email";
 "signup_password" = "Şifre";
 "signup_password_again" = "Şifre(Tekrar)";
+"home" = "Ana Sayfa";
+"inbox" = "Gelen Kutusu";
+"store" = "Mağaza";
+"my_dreams" = "Rüyalarım";
+"pending_dreams" = "Bekleyen Rüyalarım";

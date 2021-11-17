@@ -10,7 +10,7 @@ import UIKit
 class StoreScreenModule {
     
     static func initModule() -> UIViewController {
-        guard let viewController = UIStoryboard.instantiateViewController(Storyboards.StoryboardName, StoreScreenViewController.self) else {
+        guard let viewController = UIStoryboard.instantiateViewController(.home, StoreScreenViewController.self) else {
             fatalError("Couldn't iniatialize StoreScreenViewController from storyboard")
         }
         viewController.presenter.view = viewController

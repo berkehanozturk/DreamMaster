@@ -7,19 +7,20 @@
 
 import UIKit
 import UIComponents
+import Core
 protocol LoginRouter: AnyObject {
     func goToSignUpVc()
+    func goToHomeVc()
 }
 
 protocol LoginView: AnyObject {
     
 }
 
-class LoginViewController: BaseViewController, UIScrollViewDelegate {
+class LoginViewController: BaseViewController {
     
     var presenter = LoginPresenter()
     
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var fieldStackView: UIStackView!
@@ -41,8 +42,8 @@ class LoginViewController: BaseViewController, UIScrollViewDelegate {
         }
     }
     
-    let emailField = InputFieldControl(image: UIImage(named: "pencil"), placeHolder: Localizables.Login.userEmail)
-    let passwordField = InputFieldControl(image: UIImage(named: "eraser"), placeHolder: Localizables.Login.password)
+    let emailField = InputFieldControl(image: UIImage(named: ImageNames.pencil), placeHolder: Localizables.Login.userEmail)
+    let passwordField = InputFieldControl(image: UIImage(named: ImageNames.eraser), placeHolder: Localizables.Login.password)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +55,6 @@ class LoginViewController: BaseViewController, UIScrollViewDelegate {
         let color = AppBgColor()
         view.layer.insertSublayer(color.gl, at: 0)
     }
-    
-
 
     private func setup() {
         registerForKeyboardNotifications(bottomConstraint: scrollViewBottomConstraint)
@@ -64,15 +63,10 @@ class LoginViewController: BaseViewController, UIScrollViewDelegate {
         emailField.layoutIfNeeded()
         fieldStackView.spacing  = emailField.frame.height/1.5
         backButton?.isHidden = true
-        scrollView.delegate = self
-        scrollView.showsHorizontalScrollIndicator = false
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.x = 0.0
-    }
     @IBAction func loginButtonClicked(_ sender: Any) {
-        
+        goToHomeVc()
     }
     
     @objc func labelClicked() {
@@ -90,4 +84,8 @@ extension LoginViewController: LoginRouter {
         navigationController?.pushViewController(signUpVc, animated: true)
     }
     
+    func goToHomeVc() {
+        let homeTabbar =  HomeTabbarModule.initModule()
+        navigationController?.pushViewController(homeTabbar, animated: true)
+    }
 }

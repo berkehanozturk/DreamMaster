@@ -10,7 +10,7 @@ import UIKit
 class HomeTabbarModule {
     
     static func initModule() -> UIViewController {
-        guard let viewController = UIStoryboard.instantiateViewController(Storyboards.StoryboardName, HomeTabbarViewController.self) else {
+        guard let viewController = UIStoryboard.instantiateViewController(.home, HomeTabbarViewController.self) else {
             fatalError("Couldn't iniatialize HomeTabbarViewController from storyboard")
         }
         viewController.presenter.view = viewController

@@ -21,4 +21,15 @@ public struct Localizables {
         static var password: String { return "signup_password".localize() }
         static var passwordAgain: String { return "signup_password_again".localize() }
     }
+    
+    struct HomeTabbar {
+        static var home: String { return  "home".localize() }
+        static var inbox: String { return  "inbox".localize() }
+        static var store: String { return "store".localize() }
+    }
+    
+    struct InboxTabbar {
+        static var myDreams: String { return  "my_dreams".localize() }
+        static var pendingDreams: String { return  "pending_dreams".localize() }
+    }
 }

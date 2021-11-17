@@ -18,10 +18,20 @@ protocol BaseView: AnyObject {
 class BaseViewController: UIViewController {
     var backButton: BackButton?
     var bottomConstraintForKeyboard: NSLayoutConstraint?
-
+    var isBackButtonNeeded: Bool = false {
+        didSet {
+            if isBackButtonNeeded {
+                backButton?.isHidden = false
+            } else {
+                backButton?.isHidden = true
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        isBackButtonNeeded = false
         enableKeyboardDismissing()
     }
     

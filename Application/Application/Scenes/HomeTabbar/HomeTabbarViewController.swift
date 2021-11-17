@@ -15,14 +15,13 @@ protocol HomeTabbarView: AnyObject {
     
 }
 
-class HomeTabbarViewController: BaseViewController {
+class HomeTabbarViewController: UITabBarController {
     
     var presenter = HomeTabbarPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+
     }
     
 }

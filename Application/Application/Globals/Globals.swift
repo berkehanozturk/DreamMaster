@@ -5,4 +5,7 @@
 //  Created by Berkehan on 16.11.2021.
 //
 
-import Foundation
+import UIKit
+public struct Globals {
+    public static var coinCount: CGFloat = 5.0
+}

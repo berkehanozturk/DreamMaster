@@ -10,7 +10,7 @@ import UIKit
 class InboxModule {
     
     static func initModule() -> UIViewController {
-        guard let viewController = UIStoryboard.instantiateViewController(Storyboards.StoryboardName, InboxViewController.self) else {
+        guard let viewController = UIStoryboard.instantiateViewController(.home, InboxViewController.self) else {
             fatalError("Couldn't iniatialize InboxViewController from storyboard")
         }
         viewController.presenter.view = viewController
