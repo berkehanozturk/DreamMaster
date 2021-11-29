@@ -6,9 +6,18 @@
 //
 
 import UIKit
-public class InputFieldControl: UIControl, UITextFieldDelegate {
+public protocol InputFieldControlDelegate: AnyObject {
+    func textViewDidChanged()
+}
+public class InputFieldControl: UIControl, UITextViewDelegate {
     var placeHolderLabelBottomConstraint: NSLayoutConstraint!
+    var textViewLeadingConstraint: NSLayoutConstraint!
     var placeHolderLabelTopConstraint: NSLayoutConstraint!
+    
+    public enum InputFieldType {
+        case classic
+        case dreamWriting
+    }
     
     public var iconImageView: UIImageView  = {
         let imageView = UIImageView()
@@ -16,11 +25,9 @@ public class InputFieldControl: UIControl, UITextFieldDelegate {
         return imageView
     }()
     
-    public var textField: UITextField  = {
-        let textField = UITextField()
+    public var textField: UITextView  = {
+        let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.addTarget(self, action: #selector(textFieldSelected), for: UIControl.Event.editingDidBegin)
-        textField.addTarget(self, action: #selector(textFieldReleased), for: UIControl.Event.editingDidEnd)
         return textField
     }()
     
@@ -31,6 +38,13 @@ public class InputFieldControl: UIControl, UITextFieldDelegate {
         return label
     }()
     
+    public var style: InputFieldType = .classic {
+        didSet {
+            updateStyle()
+        }
+    }
+    public weak var delegate: InputFieldControlDelegate?
+    public var placeHolderText: String?
     public init(image: UIImage?, placeHolder: String) {
         super.init(frame: .zero)
         setup()
@@ -38,7 +52,11 @@ public class InputFieldControl: UIControl, UITextFieldDelegate {
         iconImageView.contentMode = .scaleAspectFit
         textField.textColor = .black
         placeHolderLabel.text = placeHolder
+        placeHolderText = placeHolder
         self.backgroundColor = .white
+        style = .classic
+        textField.delegate = self
+
     }
     
     private func setup() {
@@ -49,22 +67,23 @@ public class InputFieldControl: UIControl, UITextFieldDelegate {
         self.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewClicked))
         self.addGestureRecognizer(tapGesture)
-        textField.delegate  = self
         NSLayoutConstraint.activate([
-            textField.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor,
-                                               constant: 10),
+           
             textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             textField.topAnchor.constraint(equalTo: self.topAnchor),
             textField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            placeHolderLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            placeHolderLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor,constant: 5),
             placeHolderLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
             
             iconImageView.centerYAnchor.constraint(equalTo: self.textField.centerYAnchor),
             iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            iconImageView.heightAnchor.constraint(equalTo: textField.heightAnchor, multiplier: 0.5),
-            iconImageView.widthAnchor.constraint(equalTo: textField.heightAnchor, multiplier: 0.5),
+            iconImageView.heightAnchor.constraint(equalToConstant: 30),
+            iconImageView.widthAnchor.constraint(equalToConstant: 30),
         ])
+    
+        textViewLeadingConstraint = NSLayoutConstraint(item: textField, attribute: .leading, relatedBy: .lessThanOrEqual, toItem: iconImageView, attribute: .trailing, multiplier: 1, constant: 10)
+        textViewLeadingConstraint.isActive = true
         placeHolderLabelBottomConstraint = NSLayoutConstraint(item: placeHolderLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
         placeHolderLabelBottomConstraint.isActive = true
         placeHolderLabelTopConstraint = NSLayoutConstraint(item: placeHolderLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
@@ -73,32 +92,88 @@ public class InputFieldControl: UIControl, UITextFieldDelegate {
 
     }
     
+    func updateStyle() {
+        switch style {
+        case .classic:
+            layer.cornerRadius = frame.height * 0.25
+            layer.borderWidth = 1
+            layer.borderColor =  UIColor.clear.cgColor
+            textField.textContainer.maximumNumberOfLines = 1
+
+        case .dreamWriting:
+            backgroundColor = UIColor.clear
+            textField.textContainer.maximumNumberOfLines = 100
+            iconImageView.removeFromSuperview()
+            textViewLeadingConstraint = NSLayoutConstraint(item: textField, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 10)
+            textViewLeadingConstraint.isActive = true
+            placeHolderLabelBottomConstraint.isActive = false
+            placeHolderLabelTopConstraint.constant = 5
+            textField.adjustsFontForContentSizeCategory = true
+            textField.font = UIFont.systemFont(ofSize: 17.0)
+            textField.layer.cornerRadius = frame.width * 0.02
+            textField.layer.borderWidth = 1
+        //  setTitleColor(UIColor.white, for: .normal)
+//            layer.shadowOffset = .zero
+//            contentHorizontalAlignment = .center
+//            layer.shadowRadius = 5
+//            layer.shadowOpacity = 1
+//            setTitleColor(UIColor.white, for: .normal)
+//            titleLabel?.adjustsFontSizeToFitWidth = true
+            
+        }
+    }
     open override func layoutSubviews() {
         super.layoutSubviews()
         self.layoutIfNeeded()
-        self.layer.cornerRadius = self.frame.height * 0.25
-        self.layer.borderWidth = 1
-        self.layer.borderColor =  UIColor.clear.cgColor
+        updateStyle()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc private func textFieldSelected() {
-        animatePlaceHolderUp()
-        self.layer.borderColor =  UIColor.blue.cgColor
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+         textFieldSelected()
+         textField.layer.borderColor =  UIColor.blue.cgColor
+
+     }
+     
+    public func textViewDidEndEditing(_ textView: UITextView) {
+         textFieldReleased()
+         textField.layer.borderColor =  UIColor.clear.cgColor
+
+
+     }
+    public func textViewDidChange(_ textView: UITextView) {
+        if style == .dreamWriting {
+            delegate?.textViewDidChanged()
+            if textField.text.isEmpty  {
+                placeHolderLabel.text = placeHolderText
+            }else {
+                placeHolderLabel.text = ""
+            }
+        }
     }
     
-    @objc private func textFieldReleased() {
-        animatePlaceHolderDown()
-        self.layer.borderColor =  UIColor.clear.cgColor
-
+    private func textFieldSelected() {
+        if style == .classic {
+            animatePlaceHolderUp()
+            self.layer.borderColor =  UIColor.blue.cgColor
+        }
+    }
+    
+    private func textFieldReleased() {
+        if style == .classic {
+            animatePlaceHolderDown()
+            self.layer.borderColor =  UIColor.clear.cgColor
+        }
     }
     
     @objc private func viewClicked() {
-        textField.becomeFirstResponder()
-        textFieldSelected()
+        if style == .classic {
+            textField.becomeFirstResponder()
+            textFieldSelected()
+        }
     }
     
     func animatePlaceHolderDown() {

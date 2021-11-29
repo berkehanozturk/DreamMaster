@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F10B8AC2750F43E00D6107A /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F10B8AB2750F43E00D6107A /* Dream.swift */; };
 		6FBF4982273D478400825776 /* Service.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF4980273D478400825776 /* Service.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4E8D3232304B3CD57EA3F2B /* Pods_Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84367806D9F1B767763846E6 /* Pods_Service.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31019A69E40D651F4BE33709 /* Pods-Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Service.debug.xcconfig"; path = "Target Support Files/Pods-Service/Pods-Service.debug.xcconfig"; sourceTree = "<group>"; };
+		6F10B8AB2750F43E00D6107A /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		6FBF497D273D478400825776 /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBF4980273D478400825776 /* Service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
 		6FBF4981273D478400825776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,9 +34,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F10B8AA2750F42600D6107A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6F10B8AB2750F43E00D6107A /* Dream.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6FBF4973273D478400825776 = {
 			isa = PBXGroup;
 			children = (
+				6F10B8AA2750F42600D6107A /* Models */,
 				6FBF497F273D478400825776 /* Service */,
 				6FBF497E273D478400825776 /* Products */,
 				95C7FBB5C3330C2E24E79294 /* Pods */,
@@ -182,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F10B8AC2750F43E00D6107A /* Dream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Service
 public struct Globals {
     public static var coinCount: CGFloat = 5.0
+    public static var myDreams: [Dream] = []
+
 }

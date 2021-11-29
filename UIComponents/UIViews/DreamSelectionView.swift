@@ -7,7 +7,13 @@
 
 import UIKit
 import Core
+public protocol DreamSelectionDelegate: AnyObject {
+    func dreamViewClicked(title: SelectableTitleEnum)
+}
+
 public class DreamSelectionView: UIView {
+    public weak var delegate: DreamSelectionDelegate?
+    
     public var backgroundImageView: UIImageView  = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -15,6 +21,9 @@ public class DreamSelectionView: UIView {
         imageView.alpha = 0.8
         return imageView
     }()
+    
+    var backgroundImage: UIImage?
+    var imageLayer = CALayer()
     
     public var titleLabel: UILabel  = {
         let label = UILabel()
@@ -27,12 +36,14 @@ public class DreamSelectionView: UIView {
     }()
     
     public var priceView: PriceView?
-    
-    public init(image: UIImage?, title: String, coinPrice: CGFloat) {
+    var selectedItem: SelectableTitleEnum?
+    public init(image: UIImage?, title: SelectableTitleEnum, coinPrice: CGFloat) {
         super.init(frame: .zero)
         setup(with: coinPrice)
-        backgroundImageView.image = image
-        titleLabel.text = title
+        backgroundImageView.layer.addSublayer(imageLayer)
+        backgroundImage = image
+        selectedItem = title
+        titleLabel.text = selectedItem?.getSelectableItems()
         self.backgroundColor = .white
 
     }
@@ -62,7 +73,7 @@ public class DreamSelectionView: UIView {
             priceView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             priceView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             priceView.heightAnchor.constraint(equalTo: self.heightAnchor,multiplier: 0.2),
-            priceView.topAnchor.constraint(equalTo: self.bottomAnchor)
+            priceView.topAnchor.constraint(equalTo: self.bottomAnchor,constant: 8)
         ])
     }
     
@@ -73,12 +84,14 @@ public class DreamSelectionView: UIView {
         titleLabel.layoutIfNeeded()
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = titleLabel.frame.height * 0.2
-        backgroundImageView.clipsToBounds = true
-        
-        backgroundImageView.layer.masksToBounds = true
-        backgroundImageView.layoutIfNeeded()
-        backgroundImageView.layer.cornerRadius = backgroundImageView.frame.height * 0.15
-
+        let layer = backgroundImageView.layer
+        layer.shadowOffset = CGSize(width: 4, height: 4)
+        layer.shadowOpacity = 0.8
+        layer.shadowRadius = 5.0
+        imageLayer.frame = layer.bounds
+        imageLayer.contents = backgroundImage?.cgImage
+        imageLayer.masksToBounds = true
+        imageLayer.cornerRadius = backgroundImageView.frame.height * 0.15
     }
     
     required init?(coder: NSCoder) {
@@ -86,7 +99,7 @@ public class DreamSelectionView: UIView {
     }
     
     @objc private func viewClicked() {
-        print("Viewclicked")
+        delegate?.dreamViewClicked(title: selectedItem!)
     }
 }
 

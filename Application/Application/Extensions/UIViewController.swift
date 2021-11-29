@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 extension UIViewController {
     func enableKeyboardDismissing() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer( target: self, action: #selector(resignKeyboard))

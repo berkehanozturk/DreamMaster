@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11773BDD7E085B92D1DBDA4F /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8F78E7111B9B0A9845F81C /* Pods_Core.framework */; };
 		6F437B70274263BC0069B47E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B6F274263BC0069B47E /* String.swift */; };
+		6FBAA8E4274E6B1000AAF852 /* Localizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAA8E3274E6B1000AAF852 /* Localizables.swift */; };
 		6FBF4999273D482D00825776 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF4997273D482D00825776 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FDD7E6A274289B9006ACBA6 /* ImageNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E69274289B9006ACBA6 /* ImageNames.swift */; };
 /* End PBXBuildFile section */
@@ -16,6 +17,7 @@
 /* Begin PBXFileReference section */
 		6D6B696FB7101A72C7A8B059 /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		6F437B6F274263BC0069B47E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6FBAA8E3274E6B1000AAF852 /* Localizables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizables.swift; sourceTree = "<group>"; };
 		6FBF4994273D482D00825776 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBF4997273D482D00825776 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		6FBF4998273D482D00825776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 		6F437B6E274263B00069B47E /* Strings */ = {
 			isa = PBXGroup;
 			children = (
+				6FBAA8E3274E6B1000AAF852 /* Localizables.swift */,
 				6F437B6F274263BC0069B47E /* String.swift */,
 			);
 			path = Strings;
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FBAA8E4274E6B1000AAF852 /* Localizables.swift in Sources */,
 				6FDD7E6A274289B9006ACBA6 /* ImageNames.swift in Sources */,
 				6F437B70274263BC0069B47E /* String.swift in Sources */,
 			);

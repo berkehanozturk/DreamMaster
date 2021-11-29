@@ -18,3 +18,8 @@
 "store" = "Store";
 "my_dreams" = "My Dreams";
 "pending_dreams" = "Pending Dreams";
+"books" = "Books";
+"dreams" = "Dreams";
+"topic" = "Topic";
+"describe_dream" = "Describe Your Dream";
+"send" = "Send";

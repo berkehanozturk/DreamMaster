@@ -87,6 +87,10 @@ class InboxViewController: BaseViewController {
         dreamsTableView.dataSource = self
         pendingDreamsTableView.delegate = self
         pendingDreamsTableView.dataSource = self
+        pendingDreamsTableView.register(PendingTableViewCell.self)
+        dreamsTableView.register(DreamTableViewCell.self)
+        dreamsTableView.separatorStyle = .none
+        pendingDreamsTableView.separatorStyle = .none
         tabBarItem.title = Localizables.HomeTabbar.inbox
     }
     @IBAction func myDreamsButtonClicked(_ sender: Any) {
@@ -165,23 +169,36 @@ extension InboxViewController: InboxRouter {
 extension InboxViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 1 {
-            return 7
+            return Globals.myDreams.count
         } else if tableView.tag == 2 {
-            return 3
+            return Globals.myDreams.count
         }
-        return 3
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.tag == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "dreamsCell", for: indexPath)
-            cell.textLabel?.text = "Hello"
+            let cell: DreamTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = .clear
+            tableView.rowHeight = 80
+            let dream = Globals.myDreams[indexPath.row]
+            if let isPending = dream.isPending {
+                cell.setData(dream: dream)
+
+//                if !isPending {
+//                }
+            }
             return cell
         } else if tableView.tag == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "pendingDreamsCell", for: indexPath)
-            cell.backgroundColor = .clear
-            cell.textLabel?.text = "sagan"
+            let cell: PendingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            tableView.rowHeight = 80
+
+            let dream = Globals.myDreams[indexPath.row]
+            if let isPending = dream.isPending {
+                if isPending {
+                    cell.setData(dream: dream)
+                }
+            }
             return cell
         } else {
             return UITableViewCell()

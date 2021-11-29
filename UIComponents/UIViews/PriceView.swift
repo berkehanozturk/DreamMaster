@@ -47,7 +47,7 @@ public class PriceView: UIView {
         ])
         NSLayoutConstraint(item: titleLabel, attribute: .leading, relatedBy: .equal, toItem: leftImageView, attribute: .trailing, multiplier: 1.15, constant: 0).isActive = true
 
-        NSLayoutConstraint(item: leftImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.85, constant: 0).isActive = true
+        NSLayoutConstraint(item: leftImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.8, constant: 0).isActive = true
 
 
     }
