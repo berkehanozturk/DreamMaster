@@ -13,6 +13,8 @@ public struct ImageNames {
     public static var ansik: String { return "book" }
     public static var fortuneTeller: String { return "shaman" }
     public static var coin: String { return "coin" }
+    public static var bookStack: String { return "bookStack" }
+    public static var topic: String { return "topic" }
 
 }
 

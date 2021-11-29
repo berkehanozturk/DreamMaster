@@ -25,6 +25,8 @@ public extension UIColor {
     
     static let dreamMasterColor = UIColor(red: 110/255, green: 75/255, blue: 228/255, alpha: 1)
     static let selectedColor = UIColor(red: 62/255, green: 105/255, blue: 144/205, alpha: 1)
-    
+    static let sendActive = UIColor(red: 45/255, green: 155/255, blue: 180/205, alpha: 1)
+    static let sendPassive = UIColor(red: 22/255, green: 77/255, blue: 121/205, alpha: 1)
+
 }
 

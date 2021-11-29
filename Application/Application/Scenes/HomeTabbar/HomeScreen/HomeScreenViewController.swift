@@ -9,7 +9,9 @@ import UIKit
 import Core
 import UIComponents
 protocol HomeScreenRouter: AnyObject {
-    
+    func goToDreamWritingScreen()
+    func goToBooksScreen()
+
 }
 
 protocol HomeScreenView: AnyObject {
@@ -22,8 +24,12 @@ class HomeScreenViewController: BaseViewController, UINavigationBarDelegate {
     
     @IBOutlet weak var mainStackView: UIStackView!
     
-    let booksView = DreamSelectionView(image: UIImage(named: ImageNames.ansik), title: "Books", coinPrice: 0.0)
-    let dreamView = DreamSelectionView(image: UIImage(named: ImageNames.fortuneTeller), title: "Dreams", coinPrice: 1.0)
+    let booksView = DreamSelectionView(image: UIImage(named: ImageNames.ansik),
+                                       title: SelectableTitleEnum.books,
+                                       coinPrice: 0.0)
+    let dreamView = DreamSelectionView(image: UIImage(named: ImageNames.fortuneTeller),
+                                       title: SelectableTitleEnum.dreams,
+                                       coinPrice: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +41,16 @@ class HomeScreenViewController: BaseViewController, UINavigationBarDelegate {
         let color = AppBgColor()
         view.layer.insertSublayer(color.gl, at: 0)
         customizeNavbar()
-       
+        self.tabBarController?.tabBar.isHidden = false
+
     }
    
     private func setup() {
         mainStackView.addArrangedSubview(booksView)
         mainStackView.addArrangedSubview(dreamView)
         tabBarItem.title = Localizables.HomeTabbar.home
+        dreamView.delegate = self
+        booksView.delegate = self
 
     }
 }
@@ -72,5 +81,30 @@ extension HomeScreenViewController: HomeScreenView {
 }
 
 extension HomeScreenViewController: HomeScreenRouter {
+    func goToBooksScreen() {
+        let booksVc =  BooksModule.initModule()
+        navigationController?.pushViewController(booksVc, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
+
+    }
     
+    func goToDreamWritingScreen() {
+        let dreamWritingVc =  DreamWritingModule.initModule()
+        navigationController?.pushViewController(dreamWritingVc, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
+
+    }
+    
+}
+
+extension HomeScreenViewController: DreamSelectionDelegate {
+    func dreamViewClicked(title: SelectableTitleEnum) {
+        switch title {
+        case .books:
+            goToBooksScreen()
+        case .dreams:
+            goToDreamWritingScreen()
+
+        }
+    }
 }

@@ -46,6 +46,7 @@ class LoginViewController: BaseViewController {
     let passwordField = InputFieldControl(image: UIImage(named: ImageNames.eraser), placeHolder: Localizables.Login.password)
 
     override func viewDidLoad() {
+        enableKeyboardDismissing()
         super.viewDidLoad()
         setup()
     }

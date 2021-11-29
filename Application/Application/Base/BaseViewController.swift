@@ -15,9 +15,10 @@ protocol BaseView: AnyObject {
     
 }
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, Alertable {
     var backButton: BackButton?
     var bottomConstraintForKeyboard: NSLayoutConstraint?
+    var keyboardHeight: CGFloat?
     var isBackButtonNeeded: Bool = false {
         didSet {
             if isBackButtonNeeded {
@@ -32,7 +33,6 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         setup()
         isBackButtonNeeded = false
-        enableKeyboardDismissing()
     }
     
     private func setup() {
@@ -62,6 +62,7 @@ class BaseViewController: UIViewController {
     
     @objc private func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeight = keyboardSize.height
             if let bottomConstraint = bottomConstraintForKeyboard {
                 bottomConstraint.constant = -keyboardSize.height
                 self.view.layoutIfNeeded()

@@ -18,3 +18,8 @@
 "store" = "Mağaza";
 "my_dreams" = "Rüyalarım";
 "pending_dreams" = "Bekleyen Rüyalarım";
+"books" = "Rüya kitabı";
+"dreams" = "Rüya Yorumlat";
+"topic" = "Konu";
+"describe_dream" = "Rüyanı Yaz";
+"send" = "Gönder";

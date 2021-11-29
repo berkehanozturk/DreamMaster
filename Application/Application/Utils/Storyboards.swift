@@ -11,5 +11,7 @@ public enum Storyboards: String {
     case login = "Login"
     case signUp = "SignUp"
     case home = "Home"
+    case dreamWriting = "DreamWriting"
+    case books = "Books"
 
 }

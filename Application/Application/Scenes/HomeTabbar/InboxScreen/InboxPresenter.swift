@@ -11,5 +11,4 @@ class InboxPresenter {
     
     weak var view: InboxView?
     weak var router: InboxRouter?
-    
 }

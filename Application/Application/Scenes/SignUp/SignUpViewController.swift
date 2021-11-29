@@ -34,6 +34,7 @@ class SignUpViewController: BaseViewController {
     let passwordFieldAgain = InputFieldControl(image: UIImage(named: ImageNames.eraser), placeHolder: Localizables.Signup.passwordAgain)
 
     override func viewDidLoad() {
+        enableKeyboardDismissing()
         super.viewDidLoad()
         setup()
         // Do any additional setup after loading the view.
