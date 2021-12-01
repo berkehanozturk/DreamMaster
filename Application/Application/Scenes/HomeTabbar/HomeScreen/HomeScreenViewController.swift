@@ -34,14 +34,15 @@ class HomeScreenViewController: BaseViewController, UINavigationBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let color = AppBgColor()
         view.layer.insertSublayer(color.gl, at: 0)
-        customizeNavbar()
         self.tabBarController?.tabBar.isHidden = false
+        customizeNavbar()
 
     }
    

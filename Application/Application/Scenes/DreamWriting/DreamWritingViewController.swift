@@ -81,6 +81,7 @@ class DreamWritingViewController: BaseViewController {
                 dreamWriting.heightAnchor.constraint(equalTo: scrollViewContainerView.heightAnchor, multiplier: 0.7)
               
             ])
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         view.layoutIfNeeded()
         containerStackView.layoutIfNeeded()
