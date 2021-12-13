@@ -27,4 +27,8 @@ class BooksPresenter {
     func getWordList() -> [DreamWord] {
         return Globals.myWordList
     }
+    
+    func dreamSelected(dream: DreamWord) {
+        self.router?.goToBookInformationScreen(dream: dream)
+    }
 }

@@ -125,11 +125,16 @@ extension DreamWritingViewController: NavbarCustomizable, LeftNavbarViewDelegate
     func leftBarButtonClicked() {
         showAlert(title: "Emin misin", message: "1 coin karşılığında rüyanı yorumlatmaya  emin misin",
                   actions: [UIAlertAction(title: "Ok", style: .default, handler: { [self] _ in
-                    
+                    let random = Int.random(in: 0...1)
+                    var isPending = true
+                    if random == 0 {
+                        isPending = false
+                    }
+                    print(isPending,"ekelmesi gereken")
                     let dateString = presenter.getCurrentDateAsString()
                     presenter.sendButtonClicked(dreamText: dreamWriting.textField.text!,
                                                 dreamTopic: themeWriting.textField.text!,
-                                                isPending: true,
+                                                isPending: isPending,
                                                 createdDate: dateString)
                     navigationController?.popViewController(animated: true)
         })])

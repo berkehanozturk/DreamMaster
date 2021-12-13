@@ -37,4 +37,9 @@ public struct Localizables {
         public static var myDreams: String { return  "my_dreams".localize() }
         public static var pendingDreams: String { return  "pending_dreams".localize() }
     }
+    
+    public struct BooksScreen {
+        public static var searchWords: String { return  "search_words".localize() }
+    }
+
 }
