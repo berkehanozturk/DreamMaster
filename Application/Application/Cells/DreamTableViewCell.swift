@@ -31,6 +31,7 @@ class DreamTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
     }
 
     func setData(dream: Dream) {
+        
         dreamThemeLabel.text = dream.dreamTopic
     }
     

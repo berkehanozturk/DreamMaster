@@ -71,6 +71,10 @@
 		6FDD7EA32745428F006ACBA6 /* DreamWritingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7EA02745428F006ACBA6 /* DreamWritingPresenter.swift */; };
 		6FDD7EA42745428F006ACBA6 /* DreamWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7EA12745428F006ACBA6 /* DreamWritingViewController.swift */; };
 		6FDD7EA627454365006ACBA6 /* DreamWriting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FDD7EA527454365006ACBA6 /* DreamWriting.storyboard */; };
+		6FE3FE802757A7A70011AFC7 /* BookInformationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE3FE7D2757A7A70011AFC7 /* BookInformationModule.swift */; };
+		6FE3FE812757A7A70011AFC7 /* BookInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE3FE7E2757A7A70011AFC7 /* BookInformationPresenter.swift */; };
+		6FE3FE822757A7A70011AFC7 /* BookInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE3FE7F2757A7A70011AFC7 /* BookInformationViewController.swift */; };
+		6FE3FE842757A7C00011AFC7 /* BookInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE3FE832757A7C00011AFC7 /* BookInformation.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -156,6 +160,10 @@
 		6FDD7EA02745428F006ACBA6 /* DreamWritingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamWritingPresenter.swift; sourceTree = "<group>"; };
 		6FDD7EA12745428F006ACBA6 /* DreamWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamWritingViewController.swift; sourceTree = "<group>"; };
 		6FDD7EA527454365006ACBA6 /* DreamWriting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DreamWriting.storyboard; sourceTree = "<group>"; };
+		6FE3FE7D2757A7A70011AFC7 /* BookInformationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInformationModule.swift; sourceTree = "<group>"; };
+		6FE3FE7E2757A7A70011AFC7 /* BookInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInformationPresenter.swift; sourceTree = "<group>"; };
+		6FE3FE7F2757A7A70011AFC7 /* BookInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInformationViewController.swift; sourceTree = "<group>"; };
+		6FE3FE832757A7C00011AFC7 /* BookInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookInformation.storyboard; sourceTree = "<group>"; };
 		7ED50723CB3A2023F36A4804 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +297,7 @@
 		6FBF49BC273E689300825776 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				6FE3FE7C2757A7890011AFC7 /* BookInformationScreen */,
 				6FBAA8E5274E708F00AAF852 /* BooksScreen */,
 				6FDD7E9E2745427A006ACBA6 /* DreamWriting */,
 				6FDD7E6B27428AEC006ACBA6 /* HomeTabbar */,
@@ -403,6 +412,17 @@
 			path = DreamWriting;
 			sourceTree = "<group>";
 		};
+		6FE3FE7C2757A7890011AFC7 /* BookInformationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6FE3FE7D2757A7A70011AFC7 /* BookInformationModule.swift */,
+				6FE3FE7E2757A7A70011AFC7 /* BookInformationPresenter.swift */,
+				6FE3FE7F2757A7A70011AFC7 /* BookInformationViewController.swift */,
+				6FE3FE832757A7C00011AFC7 /* BookInformation.storyboard */,
+			);
+			path = BookInformationScreen;
+			sourceTree = "<group>";
+		};
 		9F0900CEE0C1B845361E4A07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +503,7 @@
 				6FBAA8ED274E70AE00AAF852 /* Books.storyboard in Resources */,
 				6FA591332754DA2900F7E204 /* DreamTableViewCell.xib in Resources */,
 				6FBF49D4273E8B7000825776 /* Login.storyboard in Resources */,
+				6FE3FE842757A7C00011AFC7 /* BookInformation.storyboard in Resources */,
 				6F437B752742650B0069B47E /* Localizable.strings in Resources */,
 				6FDD7EA627454365006ACBA6 /* DreamWriting.storyboard in Resources */,
 				6FBF496C273D45D400825776 /* LaunchScreen.storyboard in Resources */,
@@ -573,6 +594,7 @@
 				6FDD7E8727429471006ACBA6 /* StoreScreenViewController.swift in Sources */,
 				6FDD7E8527429471006ACBA6 /* StoreScreenModule.swift in Sources */,
 				6FDD7EA22745428F006ACBA6 /* DreamWritingModule.swift in Sources */,
+				6FE3FE822757A7A70011AFC7 /* BookInformationViewController.swift in Sources */,
 				6FDD7E8D27429666006ACBA6 /* InboxPresenter.swift in Sources */,
 				6FBF49BB273E686400825776 /* Storyboards.swift in Sources */,
 				6FBF4967273D45D200825776 /* Application.xcdatamodeld in Sources */,
@@ -599,7 +621,9 @@
 				6FBAA8EA274E70A400AAF852 /* BooksPresenter.swift in Sources */,
 				6FA5912A2754C65300F7E204 /* ReusableView.swift in Sources */,
 				6FDD7E7A27428EA4006ACBA6 /* HomeTabbarViewController.swift in Sources */,
+				6FE3FE812757A7A70011AFC7 /* BookInformationPresenter.swift in Sources */,
 				6FDD7E8E27429666006ACBA6 /* InboxViewController.swift in Sources */,
+				6FE3FE802757A7A70011AFC7 /* BookInformationModule.swift in Sources */,
 				6FBF49D2273E8B6600825776 /* LoginViewController.swift in Sources */,
 				6F437B62273FD9720069B47E /* SignUpPresenter.swift in Sources */,
 				6FDD7E7827428EA4006ACBA6 /* HomeTabbarModule.swift in Sources */,

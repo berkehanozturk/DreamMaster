@@ -8,8 +8,9 @@
 import UIKit
 import Core
 import UIComponents
+import Service
 protocol BooksRouter: AnyObject {
-    
+    func goToBookInformationScreen(dream: DreamWord)
 }
 
 protocol BooksView: AnyObject {
@@ -22,7 +23,7 @@ class BooksViewController: BaseViewController, UIGestureRecognizerDelegate {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search For Words"
+        searchController.searchBar.placeholder = Localizables.BooksScreen.searchWords
         searchController.searchBar.sizeToFit()
         searchController.searchBar.searchBarStyle = .default
         searchController.searchBar.delegate = self
@@ -40,13 +41,13 @@ class BooksViewController: BaseViewController, UIGestureRecognizerDelegate {
         wordListTableView.layoutIfNeeded()
         searchedArray = presenter.dreamListSections
         self.wordListTableView.reloadData()
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         customizeNavbar()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
     }
     
@@ -68,6 +69,11 @@ extension BooksViewController: BooksView {
 }
 
 extension BooksViewController: BooksRouter {
+    func goToBookInformationScreen(dream: DreamWord) {
+        guard let bookInfoVc =  BookInformationModule.initModule() as? BookInformationViewController else {return}
+        bookInfoVc.presenter.selectedDreamWord = dream
+        navigationController?.pushViewController(bookInfoVc, animated: true)
+    }
     
 }
 extension BooksViewController: UITableViewDelegate, UITableViewDataSource {
@@ -99,6 +105,7 @@ extension BooksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = searchedArray[indexPath.section]
         let selectedDream  = section.dreamWords[indexPath.row]
+        presenter.dreamSelected(dream: selectedDream)
     }
     
 }
@@ -135,7 +142,6 @@ extension BooksViewController: UISearchResultsUpdating {
 
 extension BooksViewController: NavbarCustomizable {
     func customizeNavbar() {
-        print(searchController)
         navigationItem.searchController = searchController
         navigationItem.title = "Dream Master"
     }

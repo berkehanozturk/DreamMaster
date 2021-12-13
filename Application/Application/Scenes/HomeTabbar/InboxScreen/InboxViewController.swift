@@ -8,6 +8,7 @@
 import UIKit
 import UIComponents
 import Core
+import Service
 protocol InboxRouter: AnyObject {
     
 }
@@ -92,6 +93,31 @@ class InboxViewController: BaseViewController {
         dreamsTableView.separatorStyle = .none
         pendingDreamsTableView.separatorStyle = .none
         tabBarItem.title = Localizables.HomeTabbar.inbox
+        dreamsTableView.refreshControl = UIRefreshControl()
+        dreamsTableView.refreshControl?.addTarget(self, action: #selector(refreshed), for: .valueChanged)
+        pendingDreamsTableView.refreshControl = UIRefreshControl()
+        pendingDreamsTableView.refreshControl?.addTarget(self, action: #selector(pendingRefreshed), for: .valueChanged)
+    }
+    
+    @objc func refreshed() {
+        print("refreshe")
+        guard let refreshControl = dreamsTableView.refreshControl else {return}
+        if refreshControl.isRefreshing {
+//            let dream = Dream(dream: "dream", dreamTopic: "dreamtopic", isPending: false, createdDate: "now")
+//            Globals.myDreams.append(dream)
+            dreamsTableView.reloadData()
+            dreamsTableView.refreshControl?.endRefreshing()
+        }
+   
+    }
+    
+    @objc func pendingRefreshed() {
+        guard let refreshControl = pendingDreamsTableView.refreshControl else {return}
+        if refreshControl.isRefreshing {
+            pendingDreamsTableView.reloadData()
+            pendingDreamsTableView.refreshControl?.endRefreshing()
+        }
+        
     }
     @IBAction func myDreamsButtonClicked(_ sender: Any) {
         updateWithMyDreams()
@@ -169,9 +195,11 @@ extension InboxViewController: InboxRouter {
 extension InboxViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 1 {
-            return Globals.myDreams.count
+            let shortNames = Globals.myDreams.filter { $0.isPending == false }
+            return shortNames.count
         } else if tableView.tag == 2 {
-            return Globals.myDreams.count
+            let shortNames = Globals.myDreams.filter { $0.isPending == true }
+            return shortNames.count
         }
         return 0
     }
@@ -181,19 +209,20 @@ extension InboxViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: DreamTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = .clear
             tableView.rowHeight = 80
-            let dream = Globals.myDreams[indexPath.row]
-            if let isPending = dream.isPending {
-                cell.setData(dream: dream)
+            let answeredDream = Globals.myDreams.filter { $0.isPending == false }
 
-//                if !isPending {
-//                }
+            let dream = answeredDream[indexPath.row]
+            if let isPending = dream.isPending {
+                if !isPending {
+                    cell.setData(dream: dream)
+                }
             }
             return cell
         } else if tableView.tag == 2 {
             let cell: PendingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             tableView.rowHeight = 80
-
-            let dream = Globals.myDreams[indexPath.row]
+            let pendingDreams = Globals.myDreams.filter { $0.isPending == true }
+            let dream = pendingDreams[indexPath.row]
             if let isPending = dream.isPending {
                 if isPending {
                     cell.setData(dream: dream)
