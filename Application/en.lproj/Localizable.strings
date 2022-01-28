@@ -24,3 +24,33 @@
 "describe_dream" = "Describe Your Dream";
 "send" = "Send";
 "search_words" = "Search for Words";
+"select" = "Select";
+"man" = "Man";
+"woman" = "Woman";
+"houseWife" = "Housewife";
+"private_sector" = "Private Sector";
+"public_sector" = "Public Sector";
+"looking_for_a_job" = "Looking for a Job";
+"student" = "Student";
+"academician" = "Academician";
+"retired" = "Retired";
+"has_her_own_job" = "Has her own job";
+"gender" = "Gender";
+"job" = "Job";
+"love" = "Love";
+
+"not_relation" = "Not in a Relationship";
+"in_relation" = "In a Relationship";
+"platonic" = "Platonic";
+"complicated" = "Complicated";
+"courtship" = "In a Courtship";
+"engaged" = "Engaged";
+"newly_seperated" = "Newly Seperated";
+"married" = "Married";
+"name" = "Name";
+"word_list" = "Word List";
+
+"psychological" = "Psychological";
+"religous" = "Religous";
+"write_your_dream" = "Write Your Dream";
+"personal_infos" = "Personal Informations";

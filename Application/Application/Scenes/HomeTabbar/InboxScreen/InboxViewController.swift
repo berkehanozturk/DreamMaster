@@ -13,9 +13,13 @@ protocol InboxRouter: AnyObject {
     
 }
 
-protocol InboxView: AnyObject {
+protocol InboxView: BaseView {
     func updateWithMyDreams()
     func updateWithPendingDreams()
+    func checkForEmptyItems()
+    func updateTableViews()
+    func showLoader()
+    func hideLoader()
 }
 
 class InboxViewController: BaseViewController {
@@ -60,9 +64,15 @@ class InboxViewController: BaseViewController {
         }
     }
     
+    lazy var informationViewDream =  EmptyItemView(message: "Inbox is empty", imageName: ImageNames.letter, parentView: dreamsTableView)
+    lazy var informationViewPending =  EmptyItemView(message: "pending table", imageName: ImageNames.bookStack, parentView: pendingDreamsTableView)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        presenter.didLoad()
+     
         // Do any additional setup after loading the view.
     }
     
@@ -72,7 +82,6 @@ class InboxViewController: BaseViewController {
         view.layer.insertSublayer(color.gl, at: 0)
         dreamsTableView.backgroundColor = .clear
         pendingDreamsTableView.backgroundColor = .clear
-
         customizeNavbar()
         
     }
@@ -90,9 +99,14 @@ class InboxViewController: BaseViewController {
         pendingDreamsTableView.dataSource = self
         pendingDreamsTableView.register(PendingTableViewCell.self)
         dreamsTableView.register(DreamTableViewCell.self)
+        self.presenter.view = self
+        self.presenter.router = self
         dreamsTableView.separatorStyle = .none
         pendingDreamsTableView.separatorStyle = .none
         tabBarItem.title = Localizables.HomeTabbar.inbox
+        pendingDreamsTableView.rowHeight = 80
+        dreamsTableView.rowHeight = 80
+
         dreamsTableView.refreshControl = UIRefreshControl()
         dreamsTableView.refreshControl?.addTarget(self, action: #selector(refreshed), for: .valueChanged)
         pendingDreamsTableView.refreshControl = UIRefreshControl()
@@ -100,11 +114,9 @@ class InboxViewController: BaseViewController {
     }
     
     @objc func refreshed() {
-        print("refreshe")
         guard let refreshControl = dreamsTableView.refreshControl else {return}
         if refreshControl.isRefreshing {
-//            let dream = Dream(dream: "dream", dreamTopic: "dreamtopic", isPending: false, createdDate: "now")
-//            Globals.myDreams.append(dream)
+            presenter.getAllDreams(seconds: 2)
             dreamsTableView.reloadData()
             dreamsTableView.refreshControl?.endRefreshing()
         }
@@ -152,6 +164,14 @@ extension InboxViewController: NavbarCustomizable, LeftNavbarViewDelegate {
     }
 }
 extension InboxViewController: InboxView {
+    func showLoader() {
+        startLoadingAtTargetView(view: dreamsTableView)
+    }
+    
+    func hideLoader() {
+        stopLoadingAtTargetView(view: dreamsTableView)
+    }
+    
     func updateWithMyDreams() {
         UIView.animate(withDuration: 0.4) {
             self.myDreamsButton.setTitleColor(.white, for: .normal)
@@ -165,8 +185,9 @@ extension InboxViewController: InboxView {
         }
         myDreamView.isHidden = false
         pendingDreamView.isHidden = true
+
         view.layoutIfNeeded()
-        dreamsTableView.reloadData()
+
     }
     
     func updateWithPendingDreams() {
@@ -182,8 +203,34 @@ extension InboxViewController: InboxView {
         }
         pendingDreamView.isHidden = false
         myDreamView.isHidden = true
-        pendingDreamsTableView.reloadData()
+
         view.layoutIfNeeded()
+    }
+    
+    func checkForEmptyItems() {
+        print("güncellemem lazım")
+        let answeredDreamCount = presenter.getAnsweredDreamCount()
+        if answeredDreamCount == 0 {
+            informationViewDream.show()
+        } else {
+            informationViewDream.hide()
+        }
+        let pendingDreamCount = presenter.getPendingDreamCount()
+        if pendingDreamCount == 0 {
+            informationViewPending.show()
+        } else {
+            informationViewPending.hide()
+        }
+        updateTableViews()
+    }
+    
+    func updateTableViews() {
+        print("update etmeli")
+        DispatchQueue.main.async {
+            self.dreamsTableView.reloadData()
+            self.pendingDreamsTableView.reloadData()
+        }
+
     }
     
 }
@@ -195,11 +242,14 @@ extension InboxViewController: InboxRouter {
 extension InboxViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 1 {
-            let shortNames = Globals.myDreams.filter { $0.isPending == false }
-            return shortNames.count
+            print("Anserwered")
+            print(presenter.getAnsweredDreamCount())
+
+            return presenter.getAnsweredDreamCount()
         } else if tableView.tag == 2 {
-            let shortNames = Globals.myDreams.filter { $0.isPending == true }
-            return shortNames.count
+            print("pendingCount")
+            print(presenter.getPendingDreamCount())
+            return presenter.getPendingDreamCount()
         }
         return 0
     }
@@ -207,27 +257,11 @@ extension InboxViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.tag == 1 {
             let cell: DreamTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.backgroundColor = .clear
-            tableView.rowHeight = 80
-            let answeredDream = Globals.myDreams.filter { $0.isPending == false }
-
-            let dream = answeredDream[indexPath.row]
-            if let isPending = dream.isPending {
-                if !isPending {
-                    cell.setData(dream: dream)
-                }
-            }
+            cell.setAnsweredData(dream: presenter.getDreamAtIndexPathInAnswered(indexPath: indexPath))
             return cell
         } else if tableView.tag == 2 {
             let cell: PendingTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            tableView.rowHeight = 80
-            let pendingDreams = Globals.myDreams.filter { $0.isPending == true }
-            let dream = pendingDreams[indexPath.row]
-            if let isPending = dream.isPending {
-                if isPending {
-                    cell.setData(dream: dream)
-                }
-            }
+            cell.setPendingData(dream: presenter.getDreamAtIndexPathInPending(indexPath: indexPath))
             return cell
         } else {
             return UITableViewCell()

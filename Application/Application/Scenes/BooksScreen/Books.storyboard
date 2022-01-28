@@ -50,6 +50,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="screenLabel" destination="G8J-JW-tvW" id="GyN-3U-81Y"/>
                         <outlet property="wordListTableView" destination="23t-AD-V85" id="4am-Wz-8KZ"/>
                     </connections>
                 </viewController>

@@ -30,6 +30,11 @@ class BooksViewController: BaseViewController, UIGestureRecognizerDelegate {
 
         return searchController
     }()
+    @IBOutlet weak var screenLabel: UILabel! {
+        didSet {
+            screenLabel.text = Localizables.BooksScreen.wordList
+        }
+    }
     
     var presenter = BooksPresenter()
     @IBOutlet weak var wordListTableView: UITableView!
@@ -144,5 +149,6 @@ extension BooksViewController: NavbarCustomizable {
     func customizeNavbar() {
         navigationItem.searchController = searchController
         navigationItem.title = "Dream Master"
+  
     }
 }

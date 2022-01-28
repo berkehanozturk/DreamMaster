@@ -26,10 +26,13 @@ public struct Localizables {
         public static var inbox: String { return  "inbox".localize() }
         public static var store: String { return "store".localize() }
         public static var books: String { return  "books".localize() }
-        public static var dreams: String { return  "Dreams".localize() }
+        public static var dreams: String { return  "dreams".localize() }
         public static var topic: String { return  "topic".localize() }
         public static var describeDream: String { return  "describe_dream".localize() }
         public static var send: String { return  "send".localize() }
+        public static var psychological: String { return  "psychological".localize() }
+        public static var religous: String { return  "religous".localize() }
+        public static var writeYourDream: String { return  "write_your_dream".localize() }
 
     }
     
@@ -40,6 +43,43 @@ public struct Localizables {
     
     public struct BooksScreen {
         public static var searchWords: String { return  "search_words".localize() }
-    }
+        public static var wordList: String { return  "word_list".localize() }
 
+    }
+    
+    public struct InfoScreen {
+        public static var name: String { return  "name".localize() }
+        public static var personalInfos: String { return  "personal_infos".localize() }
+
+        public static var gender: String { return  "gender".localize() }
+        public static var job: String { return  "job".localize() }
+        public static var love: String { return  "love".localize() }
+
+        public static var select: String { return  "select".localize() }
+        public static var man: String { return  "man".localize() }
+        public static var woman: String { return  "woman".localize() }
+        public static var houseWife: String { return  "houseWife".localize() }
+        public static var privateSector: String { return  "private_sector".localize() }
+        public static var publicSector: String { return  "public_sector".localize() }
+        public static var lookingForAJob: String { return  "looking_for_a_job".localize() }
+        public static var student: String { return  "student".localize() }
+        public static var academician: String { return  "academician".localize() }
+        public static var retired: String { return  "retired".localize() }
+        public static var hasHerOwnJob: String { return  "has_her_own_job".localize() }
+        
+        
+        public static var notInaRelationShip: String { return  "not_relation".localize() }
+        public static var inaRelationship: String { return  "in_relation".localize() }
+        public static var platonic: String { return  "platonic".localize() }
+        public static var complicated: String { return  "complicated".localize() }
+        public static var inaCourtShip: String { return  "courtship".localize() }
+        public static var engaged: String { return  "engaged".localize() }
+        public static var newlySeparated: String { return  "newly_seperated".localize() }
+        public static var married: String { return  "married".localize() }
+
+        
+        
+
+    }
 }
+

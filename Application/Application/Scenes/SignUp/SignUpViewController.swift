@@ -12,7 +12,7 @@ protocol SignUpRouter: AnyObject {
     
 }
 
-protocol SignUpView: AnyObject {
+protocol SignUpView: BaseView {
     
 }
 
@@ -26,6 +26,11 @@ class SignUpViewController: BaseViewController {
     @IBOutlet weak var signUpButton: DreamMasterButton! {
         didSet {
             signUpButton.setTitle(Localizables.Signup.signup, for: .normal)
+        }
+    }
+    @IBOutlet weak var screenLabel: UILabel! {
+        didSet {
+            screenLabel.text = Localizables.Signup.signup
         }
     }
     
@@ -54,8 +59,24 @@ class SignUpViewController: BaseViewController {
         fieldStackView.spacing  = emailField.frame.height/2.5
         registerForKeyboardNotifications(bottomConstraint: scrollViewBottomConstraint)
         isBackButtonNeeded = true
+        
+        emailField.validationRules = [EmailValidation(errorMessageBlock: { (_) in
+            return "Invalid email format"
+
+        })]
+        passwordField.validationRules = [
+            MinMaxLengthValidation(min: 5, max: 50, errorMessageBlock: { (_) -> String in
+                return "password 5 karakter ve 50 kararkter arası olmak zorunda"
+
+            }),
+            SameInputValidation(inputText: passwordFieldAgain.textField.text!, shouldSame: true, errorMessageBlock: { (_) -> String in
+            return "passwordlarınız aynı olmalı"
+        })]
     }
     
+    @IBAction func signUpButtonClicked(_ sender: Any) {
+        presenter.signUpButtonClicked()
+    }
 }
 
 extension SignUpViewController: SignUpView {

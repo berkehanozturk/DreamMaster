@@ -11,11 +11,11 @@ protocol BaseRouter: AnyObject {
   
 }
 
-protocol BaseView: AnyObject {
+protocol BaseView: AnyObject, Alertable, ValidatableController, Loadable {
     
 }
 
-class BaseViewController: UIViewController, Alertable {
+class BaseViewController: UIViewController, Alertable, ValidatableController {
     var backButton: BackButton?
     var bottomConstraintForKeyboard: NSLayoutConstraint?
     var keyboardHeight: CGFloat?
@@ -33,6 +33,7 @@ class BaseViewController: UIViewController, Alertable {
         super.viewDidLoad()
         setup()
         isBackButtonNeeded = false
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     private func setup() {

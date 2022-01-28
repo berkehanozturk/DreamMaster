@@ -12,4 +12,14 @@ class SignUpPresenter {
     weak var view: SignUpView?
     weak var router: SignUpRouter?
     
+    func signUpButtonClicked() {
+        let result = view?.validate()
+        switch result {
+        case .invalid(let error):
+          // view?.showAlert(title: "Opss..", message: error, actions: nil)
+            return
+        default:
+            print("def")
+        }
+    }
 }

@@ -15,6 +15,11 @@ public struct ImageNames {
     public static var coin: String { return "coin" }
     public static var bookStack: String { return "bookStack" }
     public static var topic: String { return "topic" }
+    public static var drop: String { return "drop" }
+    public static var checked: String { return "checked" }
+    public static var notChecked: String { return "notChecked" }
+    public static var myLoader: String { return "dreamMasterLoader" }
+    public static var letter: String { return "letter" }
 
 }
 

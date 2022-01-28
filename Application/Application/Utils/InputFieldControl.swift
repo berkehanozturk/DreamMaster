@@ -6,17 +6,16 @@
 //
 
 import UIKit
-public protocol InputFieldControlDelegate: AnyObject {
-    func textViewDidChanged()
-}
-public class InputFieldControl: UIControl, UITextViewDelegate {
+public class InputFieldControl: UIControl, UITextFieldDelegate {
     var placeHolderLabelBottomConstraint: NSLayoutConstraint!
     var textViewLeadingConstraint: NSLayoutConstraint!
     var placeHolderLabelTopConstraint: NSLayoutConstraint!
-    
+    var iconImageViewCenterConstraint: NSLayoutConstraint!
+    var textFieldTopConstraint: NSLayoutConstraint!
+
     public enum InputFieldType {
         case classic
-        case dreamWriting
+        case noRadius
     }
     
     public var iconImageView: UIImageView  = {
@@ -25,8 +24,8 @@ public class InputFieldControl: UIControl, UITextViewDelegate {
         return imageView
     }()
     
-    public var textField: UITextView  = {
-        let textField = UITextView()
+    public var textField: UITextField  = {
+        let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -43,7 +42,6 @@ public class InputFieldControl: UIControl, UITextViewDelegate {
             updateStyle()
         }
     }
-    public weak var delegate: InputFieldControlDelegate?
     public var placeHolderText: String?
     public init(image: UIImage?, placeHolder: String) {
         super.init(frame: .zero)
@@ -70,26 +68,36 @@ public class InputFieldControl: UIControl, UITextViewDelegate {
         NSLayoutConstraint.activate([
            
             textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            textField.topAnchor.constraint(equalTo: self.topAnchor),
             textField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-            placeHolderLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor,constant: 5),
+            textField.topAnchor.constraint(equalTo: self.topAnchor),
+            textField.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10),
+
+            placeHolderLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: 5),
             placeHolderLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
             
-            iconImageView.centerYAnchor.constraint(equalTo: self.textField.centerYAnchor),
             iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             iconImageView.heightAnchor.constraint(equalToConstant: 30),
             iconImageView.widthAnchor.constraint(equalToConstant: 30),
+            iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
-    
-        textViewLeadingConstraint = NSLayoutConstraint(item: textField, attribute: .leading, relatedBy: .lessThanOrEqual, toItem: iconImageView, attribute: .trailing, multiplier: 1, constant: 10)
-        textViewLeadingConstraint.isActive = true
-        placeHolderLabelBottomConstraint = NSLayoutConstraint(item: placeHolderLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+      
+        placeHolderLabelBottomConstraint = NSLayoutConstraint(item: placeHolderLabel,
+                                                              attribute: .bottom,
+                                                              relatedBy: .equal,
+                                                              toItem: self,
+                                                              attribute: .bottom,
+                                                              multiplier: 1,
+                                                              constant: 0)
         placeHolderLabelBottomConstraint.isActive = true
-        placeHolderLabelTopConstraint = NSLayoutConstraint(item: placeHolderLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+        placeHolderLabelTopConstraint = NSLayoutConstraint(item: placeHolderLabel,
+                                                           attribute: .top,
+                                                           relatedBy: .equal,
+                                                           toItem: self,
+                                                           attribute: .top,
+                                                           multiplier: 1,
+                                                           constant: 0)
         placeHolderLabelTopConstraint.isActive = true
       
-
     }
     
     func updateStyle() {
@@ -98,28 +106,10 @@ public class InputFieldControl: UIControl, UITextViewDelegate {
             layer.cornerRadius = frame.height * 0.25
             layer.borderWidth = 1
             layer.borderColor =  UIColor.clear.cgColor
-            textField.textContainer.maximumNumberOfLines = 1
-
-        case .dreamWriting:
-            backgroundColor = UIColor.clear
-            textField.textContainer.maximumNumberOfLines = 100
-            iconImageView.removeFromSuperview()
-            textViewLeadingConstraint = NSLayoutConstraint(item: textField, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 10)
-            textViewLeadingConstraint.isActive = true
-            placeHolderLabelBottomConstraint.isActive = false
-            placeHolderLabelTopConstraint.constant = 5
-            textField.adjustsFontForContentSizeCategory = true
-            textField.font = UIFont.systemFont(ofSize: 17.0)
-            textField.layer.cornerRadius = frame.width * 0.02
-            textField.layer.borderWidth = 1
-        //  setTitleColor(UIColor.white, for: .normal)
-//            layer.shadowOffset = .zero
-//            contentHorizontalAlignment = .center
-//            layer.shadowRadius = 5
-//            layer.shadowOpacity = 1
-//            setTitleColor(UIColor.white, for: .normal)
-//            titleLabel?.adjustsFontSizeToFitWidth = true
             
+        case .noRadius:
+            layer.borderWidth = 1
+            layer.borderColor =  UIColor.clear.cgColor
         }
     }
     open override func layoutSubviews() {
@@ -132,38 +122,26 @@ public class InputFieldControl: UIControl, UITextViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func textViewDidBeginEditing(_ textView: UITextView) {
-         textFieldSelected()
-         textField.layer.borderColor =  UIColor.blue.cgColor
-
-     }
-     
-    public func textViewDidEndEditing(_ textView: UITextView) {
-         textFieldReleased()
-         textField.layer.borderColor =  UIColor.clear.cgColor
-
-
-     }
-    public func textViewDidChange(_ textView: UITextView) {
-        if style == .dreamWriting {
-            delegate?.textViewDidChanged()
-            if textField.text.isEmpty  {
-                placeHolderLabel.text = placeHolderText
-            }else {
-                placeHolderLabel.text = ""
-            }
-        }
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        textFieldSelected()
+        textField.layer.borderColor =  UIColor.blue.cgColor
+        
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        textFieldReleased()
+        textField.layer.borderColor =  UIColor.clear.cgColor
     }
     
     private func textFieldSelected() {
-        if style == .classic {
+        if style == .classic || style == .noRadius {
             animatePlaceHolderUp()
             self.layer.borderColor =  UIColor.blue.cgColor
         }
     }
     
     private func textFieldReleased() {
-        if style == .classic {
+        if style == .classic || style == .noRadius {
             animatePlaceHolderDown()
             self.layer.borderColor =  UIColor.clear.cgColor
         }
@@ -194,6 +172,13 @@ public class InputFieldControl: UIControl, UITextViewDelegate {
             self.layoutIfNeeded()
         }
     }
-
 }
-
+extension InputFieldControl: ValidatableInterfaceElement {
+ 
+    public var input: String? {  print(textField.text!)
+        return textField.text }
+    
+    public func onValidation(result: ValidationResult) {
+        
+    }
+}

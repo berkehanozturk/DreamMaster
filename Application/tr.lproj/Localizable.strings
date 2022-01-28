@@ -24,3 +24,35 @@
 "describe_dream" = "Rüyanı Yaz";
 "send" = "Gönder";
 "search_words" = "Kelime Ara";
+"select" = "Seçiniz";
+"man" = "Erkek";
+"woman" = "Kadın";
+"houseWife" = "Ev hanımı";
+"private_sector" = "Özel sektör";
+"public_sector" = "Kamu sektörü";
+"looking_for_a_job" = "İş arayışında";
+"student" = "Öğrenci";
+"academician" = "Akademisyen";
+"retired" = "Emekli";
+"has_her_own_job" = "Kendi işini yapıyor";
+"gender" = "Cinsiyet";
+"job" = "İş durumu";
+"love" = "Aşk Durumu";
+
+"not_relation" = "İlişkisi yok";
+"in_relation" = "İlişkisi var";
+"platonic" = "Platonik";
+"complicated" = "Karışık";
+"courtship" = "Flört halinde";
+"engaged" = "Nişanlı";
+"newly_seperated" = "Yeni ayrılmış";
+"married" = "Evli";
+"name" = "İsim";
+
+"word_list" = "Kelime Listesi";
+
+
+"psychological" = "Psikolojik";
+"religous" = "Dini Açıdan";
+"write_your_dream" = "Rüyanı Yaz";
+"personal_infos" = "Kişisel Bilgiler";

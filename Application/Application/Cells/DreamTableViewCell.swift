@@ -22,6 +22,8 @@ class DreamTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
         bubbleView.layer.cornerRadius = bubbleView.frame.width * 0.1
         bubbleView.layer.borderWidth = 0.5
         bubbleView.layer.borderColor = UIColor.systemBlue.cgColor
+        self.backgroundColor = .clear
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,9 +32,11 @@ class DreamTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
         // Configure the view for the selected state
     }
 
-    func setData(dream: Dream) {
-        
-        dreamThemeLabel.text = dream.dreamTopic
+ 
+    func setAnsweredData(dream: Dream) {
+        if dream.isPending == false {
+            dreamThemeLabel.text = dream.dreamTopic
+        }
     }
     
 }
