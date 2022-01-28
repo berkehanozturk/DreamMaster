@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F437B55273E95540069B47E /* InputFieldControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B54273E95540069B47E /* InputFieldControl.swift */; };
+		6F41972527677C4100B220AB /* DropDownField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F41972427677C4100B220AB /* DropDownField.swift */; };
+		6F419727276784BD00B220AB /* DatePickerSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F419726276784BD00B220AB /* DatePickerSelectable.swift */; };
+		6F41972A2767850200B220AB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4197292767850200B220AB /* DatePickerViewController.swift */; };
+		6F41972C2767851E00B220AB /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F41972B2767851E00B220AB /* CustomPresentationController.swift */; };
+		6F41972E276785E000B220AB /* PickerSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F41972D276785E000B220AB /* PickerSelectable.swift */; };
+		6F4197302767860400B220AB /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F41972F2767860400B220AB /* PickerViewController.swift */; };
+		6F419734276AB9C200B220AB /* CheckBoxControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F419733276AB9C200B220AB /* CheckBoxControl.swift */; };
+		6F419737276ACAE400B220AB /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F419736276ACAE400B220AB /* SendButton.swift */; };
 		6F437B5C273FD0580069B47E /* DreamMasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B5B273FD0570069B47E /* DreamMasterButton.swift */; };
 		6F437B67273FE1450069B47E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F437B66273FE1450069B47E /* BackButton.swift */; };
 		6FBAA8E1274E6AD200AAF852 /* SelectableTitleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAA8E0274E6AD200AAF852 /* SelectableTitleEnum.swift */; };
 		6FBAA8F5274FC33E00AAF852 /* SendCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAA8F4274FC33E00AAF852 /* SendCustomView.swift */; };
 		6FBF49AE273D486D00825776 /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF49AC273D486D00825776 /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FBF49D7273E8D5B00825776 /* AppBgColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF49D6273E8D5B00825776 /* AppBgColor.swift */; };
+		6FD1FB2227847A2700E2305B /* EmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1FB2127847A2700E2305B /* EmptyItemView.swift */; };
+		6FD1FB26278483B600E2305B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1FB25278483B600E2305B /* LoadingView.swift */; };
 		6FDD7E9027429C1C006ACBA6 /* DreamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E8F27429C1C006ACBA6 /* DreamSelectionView.swift */; };
 		6FDD7E932743C8FC006ACBA6 /* LeftNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E922743C8FC006ACBA6 /* LeftNavbarView.swift */; };
 		6FDD7E9B2743DA01006ACBA6 /* MyBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDD7E9A2743DA01006ACBA6 /* MyBarButtonItem.swift */; };
@@ -24,7 +33,14 @@
 /* Begin PBXFileReference section */
 		0E108383E9D2808EB2D4519B /* Pods-UIComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIComponents.debug.xcconfig"; path = "Target Support Files/Pods-UIComponents/Pods-UIComponents.debug.xcconfig"; sourceTree = "<group>"; };
 		5D5511BF2FE9B8D5FFCE1CA5 /* Pods_UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F437B54273E95540069B47E /* InputFieldControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldControl.swift; sourceTree = "<group>"; };
+		6F41972427677C4100B220AB /* DropDownField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownField.swift; sourceTree = "<group>"; };
+		6F419726276784BD00B220AB /* DatePickerSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerSelectable.swift; sourceTree = "<group>"; };
+		6F4197292767850200B220AB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		6F41972B2767851E00B220AB /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
+		6F41972D276785E000B220AB /* PickerSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSelectable.swift; sourceTree = "<group>"; };
+		6F41972F2767860400B220AB /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		6F419733276AB9C200B220AB /* CheckBoxControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxControl.swift; sourceTree = "<group>"; };
+		6F419736276ACAE400B220AB /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
 		6F437B5B273FD0570069B47E /* DreamMasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamMasterButton.swift; sourceTree = "<group>"; };
 		6F437B66273FE1450069B47E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		6FBAA8E0274E6AD200AAF852 /* SelectableTitleEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTitleEnum.swift; sourceTree = "<group>"; };
@@ -33,6 +49,8 @@
 		6FBF49AC273D486D00825776 /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
 		6FBF49AD273D486D00825776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FBF49D6273E8D5B00825776 /* AppBgColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBgColor.swift; sourceTree = "<group>"; };
+		6FD1FB2127847A2700E2305B /* EmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItemView.swift; sourceTree = "<group>"; };
+		6FD1FB25278483B600E2305B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6FDD7E8F27429C1C006ACBA6 /* DreamSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamSelectionView.swift; sourceTree = "<group>"; };
 		6FDD7E922743C8FC006ACBA6 /* LeftNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftNavbarView.swift; sourceTree = "<group>"; };
 		6FDD7E9A2743DA01006ACBA6 /* MyBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBarButtonItem.swift; sourceTree = "<group>"; };
@@ -60,15 +78,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6F419728276784F000B220AB /* Datepickers */ = {
+			isa = PBXGroup;
+			children = (
+				6F4197292767850200B220AB /* DatePickerViewController.swift */,
+				6F41972F2767860400B220AB /* PickerViewController.swift */,
+			);
+			path = Datepickers;
+			sourceTree = "<group>";
+		};
+		6F419735276ACACE00B220AB /* UIButtons */ = {
+			isa = PBXGroup;
+			children = (
+				6F419736276ACAE400B220AB /* SendButton.swift */,
+			);
+			path = UIButtons;
+			sourceTree = "<group>";
+		};
 		6F437B52273E95360069B47E /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				6FD1FB2027847A1700E2305B /* UIView */,
+				6F419735276ACACE00B220AB /* UIButtons */,
+				6F419728276784F000B220AB /* Datepickers */,
 				6FDD7E912743C8E9006ACBA6 /* NavbarViews */,
-				6F437B54273E95540069B47E /* InputFieldControl.swift */,
 				6F437B5B273FD0570069B47E /* DreamMasterButton.swift */,
 				6F437B66273FE1450069B47E /* BackButton.swift */,
 				6FDD7E8F27429C1C006ACBA6 /* DreamSelectionView.swift */,
 				6FDD7E9C2743F1CC006ACBA6 /* PriceView.swift */,
+				6F41972427677C4100B220AB /* DropDownField.swift */,
+				6F419733276AB9C200B220AB /* CheckBoxControl.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -77,6 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				6FBAA8E0274E6AD200AAF852 /* SelectableTitleEnum.swift */,
+				6F419726276784BD00B220AB /* DatePickerSelectable.swift */,
+				6F41972B2767851E00B220AB /* CustomPresentationController.swift */,
+				6F41972D276785E000B220AB /* PickerSelectable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -117,6 +159,15 @@
 				6FBF49D6273E8D5B00825776 /* AppBgColor.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		6FD1FB2027847A1700E2305B /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				6FD1FB2127847A2700E2305B /* EmptyItemView.swift */,
+				6FD1FB25278483B600E2305B /* LoadingView.swift */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		6FDD7E912743C8E9006ACBA6 /* NavbarViews */ = {
@@ -244,15 +295,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F41972C2767851E00B220AB /* CustomPresentationController.swift in Sources */,
+				6F41972E276785E000B220AB /* PickerSelectable.swift in Sources */,
+				6F4197302767860400B220AB /* PickerViewController.swift in Sources */,
+				6FD1FB2227847A2700E2305B /* EmptyItemView.swift in Sources */,
 				6FDD7E9D2743F1CC006ACBA6 /* PriceView.swift in Sources */,
+				6F41972A2767850200B220AB /* DatePickerViewController.swift in Sources */,
+				6F419727276784BD00B220AB /* DatePickerSelectable.swift in Sources */,
 				6F437B67273FE1450069B47E /* BackButton.swift in Sources */,
 				6FBF49D7273E8D5B00825776 /* AppBgColor.swift in Sources */,
-				6F437B55273E95540069B47E /* InputFieldControl.swift in Sources */,
+				6F419734276AB9C200B220AB /* CheckBoxControl.swift in Sources */,
+				6F419737276ACAE400B220AB /* SendButton.swift in Sources */,
+				6F41972527677C4100B220AB /* DropDownField.swift in Sources */,
 				6FDD7E9027429C1C006ACBA6 /* DreamSelectionView.swift in Sources */,
 				6F437B5C273FD0580069B47E /* DreamMasterButton.swift in Sources */,
 				6FDD7E932743C8FC006ACBA6 /* LeftNavbarView.swift in Sources */,
 				6FBAA8F5274FC33E00AAF852 /* SendCustomView.swift in Sources */,
 				6FDD7E9B2743DA01006ACBA6 /* MyBarButtonItem.swift in Sources */,
+				6FD1FB26278483B600E2305B /* LoadingView.swift in Sources */,
 				6FBAA8E1274E6AD200AAF852 /* SelectableTitleEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,7 +34,7 @@ public class SendCustomView: UIView {
         self.addSubview(titleLabel)
         self.addSubview(transparentView)
         self.isUserInteractionEnabled = false
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+      //  transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
     }
 
     open override func layoutSubviews() {

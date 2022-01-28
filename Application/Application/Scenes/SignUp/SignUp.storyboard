@@ -29,6 +29,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-Gv-W5E" customClass="DreamMasterButton" customModule="UIComponents">
                                                 <rect key="frame" x="32" y="520.33333333333337" width="364" height="60"/>
                                                 <state key="normal" title="Sign Up"/>
+                                                <connections>
+                                                    <action selector="signUpButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0rl-uO-DeW"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-0r-hw9">
                                                 <rect key="frame" x="142" y="160.66666666666666" width="144.33333333333337" height="48"/>
@@ -73,6 +76,7 @@
                     </view>
                     <connections>
                         <outlet property="fieldStackView" destination="fng-vi-zex" id="fPI-oL-CeD"/>
+                        <outlet property="screenLabel" destination="PxK-0r-hw9" id="HoA-lV-Rj5"/>
                         <outlet property="scrollViewBottomConstraint" destination="j2T-67-hGu" id="v2p-2M-5H3"/>
                         <outlet property="signUpButton" destination="ZE4-Gv-W5E" id="1dr-9k-rV4"/>
                     </connections>

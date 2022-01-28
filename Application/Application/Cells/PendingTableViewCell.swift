@@ -29,8 +29,11 @@ class PendingTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
         // Configure the view for the selected state
     }
     
-    func setData(dream: Dream) {
-        dreamTopicLabel.text = dream.dreamTopic
+    func setPendingData(dream: Dream) {
+        print(dream.isPending)
+        if dream.isPending == true {
+            dreamTopicLabel.text = dream.dreamTopic
+        }
     }
     
 }

@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="fieldStackView" destination="0JQ-uk-PkH" id="5pD-9f-7rv"/>
                         <outlet property="loginButton" destination="7oG-3Y-VDf" id="isj-AS-447"/>
+                        <outlet property="screenLabel" destination="wpr-vQ-uIq" id="UDE-gN-Nud"/>
                         <outlet property="scrollView" destination="5Of-23-nok" id="tkP-sN-R78"/>
                         <outlet property="scrollViewBottomConstraint" destination="3eN-rU-s9k" id="6i5-0v-AQF"/>
                         <outlet property="signUpLabel" destination="Gho-6A-RZV" id="czx-uI-57A"/>

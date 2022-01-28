@@ -123,8 +123,10 @@
                             <constraint firstItem="lQZ-4S-Div" firstAttribute="top" secondItem="vVb-H4-GJc" secondAttribute="bottom" multiplier="1.1" id="KoR-DN-Bqu"/>
                             <constraint firstItem="tJV-Ru-Uss" firstAttribute="top" secondItem="lQZ-4S-Div" secondAttribute="bottom" id="Lzv-tB-Y6R"/>
                             <constraint firstItem="N3z-F8-GlU" firstAttribute="trailing" secondItem="tJV-Ru-Uss" secondAttribute="trailing" id="T74-2o-z7a"/>
+                            <constraint firstItem="tJV-Ru-Uss" firstAttribute="width" secondItem="JX1-Df-a35" secondAttribute="width" id="TUD-zC-ulv"/>
                             <constraint firstItem="vVb-H4-GJc" firstAttribute="centerY" secondItem="JX1-Df-a35" secondAttribute="centerY" multiplier="0.3" id="Wme-xA-fFc"/>
                             <constraint firstItem="tJV-Ru-Uss" firstAttribute="bottom" secondItem="N3z-F8-GlU" secondAttribute="bottom" id="ZVP-Nc-emV"/>
+                            <constraint firstItem="tJV-Ru-Uss" firstAttribute="height" secondItem="JX1-Df-a35" secondAttribute="height" multiplier="0.662946" id="bAJ-Jb-EhU"/>
                             <constraint firstItem="GhW-Kt-2W1" firstAttribute="height" secondItem="JX1-Df-a35" secondAttribute="height" multiplier="0.05" id="bMQ-K9-nIA"/>
                             <constraint firstItem="N3z-F8-GlU" firstAttribute="trailing" secondItem="lQZ-4S-Div" secondAttribute="trailing" constant="10" id="ej2-a9-WPl"/>
                             <constraint firstItem="vVb-H4-GJc" firstAttribute="leading" secondItem="N3z-F8-GlU" secondAttribute="leading" constant="10" id="xCR-fb-Sd4"/>
@@ -176,11 +178,11 @@
             </objects>
             <point key="canvasLocation" x="1515.9420289855075" y="-492.1875"/>
         </scene>
-        <!--Home Tabbar View Controller-->
+        <!--Home-->
         <scene sceneID="eyG-rK-WOi">
             <objects>
                 <tabBarController storyboardIdentifier="HomeTabbarViewController" id="vIc-RD-XPM" customClass="HomeTabbarViewController" customModule="Application" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="pbh-XK-t76"/>
+                    <navigationItem key="navigationItem" title="Home" id="pbh-XK-t76"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V9Q-9E-vmf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

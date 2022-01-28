@@ -13,7 +13,7 @@ protocol LoginRouter: AnyObject {
     func goToHomeVc()
 }
 
-protocol LoginView: AnyObject {
+protocol LoginView: BaseView {
     
 }
 
@@ -29,6 +29,13 @@ class LoginViewController: BaseViewController {
             loginButton.setTitle(Localizables.Login.login, for: .normal)
         }
     }
+    
+    @IBOutlet weak var screenLabel: UILabel! {
+        didSet {
+            screenLabel.text = Localizables.Login.login
+        }
+    }
+    
     @IBOutlet weak var signUpLabel: UILabel! {
         didSet {
             let labelTap = UITapGestureRecognizer(target: self, action: #selector(labelClicked))
@@ -64,9 +71,23 @@ class LoginViewController: BaseViewController {
         emailField.layoutIfNeeded()
         fieldStackView.spacing  = emailField.frame.height/1.5
         backButton?.isHidden = true
+        passwordField.textField.isSecureTextEntry = true
+        passwordField.textField.clearsOnBeginEditing = false
+
+        emailField.validationRules = [EmailValidation(errorMessageBlock: { (_) in
+            return "Invalid email format"
+
+        }), MinMaxLengthValidation(min: 5, max: 200, errorMessageBlock: { (_) -> String in
+            return "password 5 karakter ve 50 kararkter arası olmak zorunda"
+        })]
+        passwordField.validationRules = [
+            MinMaxLengthValidation(min: 5, max: 50, errorMessageBlock: { (_) -> String in
+                return "password 5 karakter ve 50 kararkter arası olmak zorunda"
+            })]
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
+        presenter.loginButtonClicked()
         goToHomeVc()
     }
     

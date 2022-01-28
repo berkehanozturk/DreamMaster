@@ -23,16 +23,24 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjk-AZ-HJC">
                                         <rect key="frame" x="0.0" y="20" width="414" height="896"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Nli-Ug-qAy">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nli-Ug-qAy">
+                                                <rect key="frame" x="0.0" y="41" width="414" height="855"/>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write Your Dream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vws-Vz-wRN">
+                                                <rect key="frame" x="94" y="0.0" width="226" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" red="0.43924885400000002" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Vws-Vz-wRN" firstAttribute="top" secondItem="xjk-AZ-HJC" secondAttribute="top" id="MCJ-nc-84M"/>
                                             <constraint firstItem="Nli-Ug-qAy" firstAttribute="leading" secondItem="xjk-AZ-HJC" secondAttribute="leading" id="P8Y-yA-xup"/>
                                             <constraint firstAttribute="bottom" secondItem="Nli-Ug-qAy" secondAttribute="bottom" placeholder="YES" id="Utc-xl-ja1"/>
+                                            <constraint firstItem="Vws-Vz-wRN" firstAttribute="centerX" secondItem="xjk-AZ-HJC" secondAttribute="centerX" id="Vty-Fc-aBE"/>
                                             <constraint firstAttribute="trailing" secondItem="Nli-Ug-qAy" secondAttribute="trailing" id="Xe3-Jl-yhY"/>
-                                            <constraint firstItem="Nli-Ug-qAy" firstAttribute="top" secondItem="xjk-AZ-HJC" secondAttribute="top" id="pLI-BS-Fp7"/>
+                                            <constraint firstItem="Nli-Ug-qAy" firstAttribute="top" secondItem="Vws-Vz-wRN" secondAttribute="bottom" constant="5" id="wBf-m7-KW9"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -58,6 +66,7 @@
                     </view>
                     <connections>
                         <outlet property="containerStackView" destination="Nli-Ug-qAy" id="jC9-PW-4JI"/>
+                        <outlet property="screenLabel" destination="Vws-Vz-wRN" id="La7-EJ-sOG"/>
                         <outlet property="scrollViewBottomConstraint" destination="xbY-cQ-cUi" id="UeW-qN-aCG"/>
                         <outlet property="scrollViewContainerView" destination="xjk-AZ-HJC" id="adc-ev-XRC"/>
                     </connections>
